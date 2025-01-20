@@ -1,0 +1,36 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+}
+
+.Header-Container {
+  width: 100vw;
+  height: 64px;
+  background-color: white;
+  box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+}
+
+.Hero-Container {
+  width: 60vw;
+  height: 60vh;
+  background-image: url("/src/assets/images/placeholder.jpg");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.Hero-Title {
+  color: white;
+}
+
+.Hero-Undertitle {
+  color: white;
+}
