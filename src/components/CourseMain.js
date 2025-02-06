@@ -1,7 +1,8 @@
 import '../App.css';
 import Breadcrumps from './Breadcrumbs';
+import Rating from './Rating';
 
-function CourseCard({courseTitle, title, creator}) {
+function CourseCard({title, creator, price, currency, rating, reviewAmount}) {
   return (
     <div className="Course-Main-Container">
       <div className="Course-Main-Top-Container">
@@ -11,25 +12,16 @@ function CourseCard({courseTitle, title, creator}) {
         <div>
           <img style={{width:'576px', height:'384'}} src='https://foundr.com/wp-content/uploads/2023/04/How-to-create-an-online-course.jpg.webp'></img>
         </div>
-        <div>
-          <div className='Course-Showcase-Container'>
-            <b>{courseTitle}</b>
-            <p>Tired of working for money? Learn the ultimate skill of appearing productive while doing absolutely nothing. Discover clever techniques to trick colleagues, employers, and customers into believing you're hard at work—all while enjoying a stress-free day. Work smarter, not harder!</p>
-            <text>Course by Valve Corporation</text>
-            <b>2000 NOK</b>
-            <button>Enroll</button>
+        <div className='Course-Showcase-Container'>
+          <div>
+            <b className='Text-Light-Title'>{title}</b>
+            <p className='Text-Light'>Undertitle</p>
+            <div><text className='Text-Light'>Course by </text><a className='Text-Light' href=''>{creator}</a></div>
+            <Rating rating={rating} amount={reviewAmount} light={false} />
           </div>
-          <div className='Course-Meta-Container'>
-            <text>Category</text>
-            <button>Business</button>
-            <text>Topics</text>
-            <div>
-              <button>Communication skills</button>
-              <button>Time Management</button>
-              <button>Networking & Relationship Management</button>
-              <button>Meetings Management</button>
-              <button>Leadership Presence</button>
-            </div>
+          <div>
+            <b className='Text-Light'>{price} {currency}</b>
+            <button className='Button-Large'>Enroll</button>
           </div>
         </div>
       </div>

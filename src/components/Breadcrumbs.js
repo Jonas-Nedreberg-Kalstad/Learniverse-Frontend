@@ -3,9 +3,9 @@ import '../App.css';
 function Breadcrumps({category, courseName}) {
   return (
     <div className="Breadcrumbs-Container">
-      <text>{category}</text>
-      <text> - </text>
-      <text>{courseName}</text>
+      <text className='Text-Light'>{category}</text>
+      <text className='Text-Light'> - </text>
+      <text className='Text-Light'>{courseName}</text>
     </div>
   );
 }
