@@ -1,24 +1,67 @@
 import '../App.css';
+import React, { useState } from "react";
+import axios from "axios";
+import { useCookies } from 'react-cookie';
+import { URL } from '../utils/url';
 
 function LoginContainer() {
+
+  const [cookies, setCookie, removeCookie] = useCookies();
+
+  const [inputEmailValue, setInputEmailValue] = useState("")
+  const [inputPasswordValue, setInputPassowrdValue] = useState("")
+
+  const handleInputChange = (event) => {
+    const name = event.target.name
+    const value = event.target.value
+
+    switch (name) {
+      case 'email':
+        setInputEmailValue(value);
+        break;
+      case 'password':
+        setInputPassowrdValue(value);
+        break;
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const userCredentials = { email:inputEmailValue, password:inputPasswordValue }
+    console.log(`${URL.BACKEND}/api/anonymous/authenticate`);
+    axios.post(`${URL.BACKEND}/api/anonymous/authenticate`, userCredentials)
+    .then(response => {
+      if(response.status == 200) {
+        console.log("login successful")
+        setCookie('JWT', response.data.response, {maxAge: 12*3600, path: '/'});
+        window.location.href = '/';
+      }
+      console.log(response);
+    })
+    .catch(error => {
+      // Handle error
+      console.log(error);
+    });
+  };
+
   return (
-    <div className="Login-Container">
+    <form className="Login-Container" onSubmit={handleSubmit}>
         <h2>Login</h2>
 
-        <div style={{display:'flex', flexDirection:'column'}}>
+        <div style={{display:'flex', flexDirection:'column', width:'75%'}}>
             <text>Email</text>
-            <input type='name' placeholder='Email' />
+            <input type='email' name='email' value={inputEmailValue} onChange={handleInputChange} placeholder='Email' />
         </div>
 
-        <div style={{display:'flex', flexDirection:'column'}}>
+        <div style={{display:'flex', flexDirection:'column', width:'75%'}}>
             <text>Password</text>
-            <input type='password' placeholder='password' />
+            <input type='password' name='password' value={inputPasswordValue} onChange={handleInputChange} placeholder='password' />
         </div>
 
-        <button>Login</button>
+        <button style={{width:'50%'}} type="submit">Login</button>
 
         <div><text>Don't have an account? </text><a href='/signup'>Create an account</a></div>
-    </div>
+    </form>
   );
 }
 
