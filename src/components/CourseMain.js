@@ -1,31 +1,41 @@
+import { useNavigate } from 'react-router-dom';
 import '../App.css';
 import Breadcrumps from './Breadcrumbs';
 import Rating from './Rating';
 
-function CourseCard({title, creator, price, currency, rating, reviewAmount}) {
+function CourseCard({id, title, creator, price, currency, rating, reviewAmount}) {
+
+  const navigate = useNavigate();
+
   return (
-    <div className="Course-Main-Container">
-      <div className="Course-Main-Top-Container">
+    <main className="Course-Main-Container">
+      <section className="Course-Main-Top-Container">
         <Breadcrumps category={"Business"} courseName={"The Art of Looking Busy While Doing Nothing"} />
-      </div>
-      <div className="Course-Main-Card-Container">
-        <div>
-          <img style={{width:'576px', height:'384'}} src='https://foundr.com/wp-content/uploads/2023/04/How-to-create-an-online-course.jpg.webp'></img>
-        </div>
-        <div className='Course-Showcase-Container'>
-          <div>
-            <b className='Text-Light-Title'>{title}</b>
+      </section>
+      
+      <article className="Course-Main-Card-Container">
+        <figure>
+          <img style={{ width: '576px', height: '336px' }} src='https://foundr.com/wp-content/uploads/2023/04/How-to-create-an-online-course.jpg.webp' alt="Course Image" />
+        </figure>
+  
+        <section className="Course-Showcase-Container">
+          <header>
+            <h1 className='Text-Light-Title'>{title}</h1>
             <p className='Text-Light'>Undertitle</p>
-            <div><text className='Text-Light'>Course by </text><a className='Text-Light' href=''>{creator}</a></div>
+            <p>
+              <span className='Text-Light'>Course by </span>
+              <a className='Text-Light' href=''>{creator}</a>
+            </p>
             <Rating rating={rating} amount={reviewAmount} light={false} />
-          </div>
-          <div>
+          </header>
+  
+          <footer>
             <b className='Text-Light'>{price} {currency}</b>
-            <button className='Button-Large'>Enroll</button>
-          </div>
-        </div>
-      </div>
-    </div>
+            <button className='Enroll-Button' onClick={() => { navigate(`enroll`) }}>Enroll</button>
+          </footer>
+        </section>
+      </article>
+    </main>
   );
 }
 

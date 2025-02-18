@@ -1,29 +1,39 @@
+import { useNavigate } from 'react-router-dom';
 import '../App.css';
 
 function CourseDescription({description, category, topics}) {
 
+  const navigate = useNavigate();
+
   const createTopicButtons = () => {
     return(
       topics.map((topic, index) => (
-        <button>{topic.topic}</button>
+        <button onClick={() => {navigate(`/search?topics=${topic.topic}:${topic.id}`)}}>{topic.topic}</button>
       ))
     )
   };
 
   return (
-    <div className="Course-Description-Container">
-        <div className='Course-Meta-Container'>
-            <text>Category</text>
-            <button>{category.category}</button>
-            <text>Topics</text>
-            <div>
-              {createTopicButtons()}
-            </div>
+    <section className="Course-Description-Container">
+      <header className="Course-Meta-Container">
+        <p><strong>Category:</strong></p>
+        <span><button onClick={() => { navigate(`/search?categoryid=${category.category}`) }}>
+          {category.category}
+        </button></span>
+  
+        <p><strong>Topics:</strong></p>
+        <div>
+          {createTopicButtons()}
         </div>
+      </header>
+  
+      <section>
         <h2>Description</h2>
         <p>{description}</p>
-    </div>
+      </section>
+    </section>
   );
+  
 }
 
 export default CourseDescription;
