@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useCookies } from 'react-cookie';
 import { URL } from '../utils/url';
+import { setRolesFromJWT } from '../utils/role';
 
 function LoginContainer() {
 
@@ -34,6 +35,10 @@ function LoginContainer() {
       if(response.status == 200) {
         console.log("login successful")
         setCookie('JWT', response.data.response, {maxAge: 12*3600, path: '/'});
+        
+        // Decodes the jwt token and checks the users authority.
+        setRolesFromJWT(response.data.response);
+        
         window.location.href = '/';
       }
       console.log(response);
