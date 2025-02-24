@@ -1,7 +1,11 @@
 import '../App.css';
 import TopicCard from './TopicCard.js';
+import { useNavigate } from "react-router-dom";
 
 function TrendingTopics() {
+
+  const navigate = useNavigate();
+
   return (
     <div className="Trending-Topics-Container">
         <h2>Trending topics</h2>
@@ -21,6 +25,7 @@ function TrendingTopics() {
                 <TopicCard topic="Game development"/>
             </div>
         </div>
+        <a href='' onClick={() => navigate("/search")}>View all popular topics</a>
     </div>
   );
 }

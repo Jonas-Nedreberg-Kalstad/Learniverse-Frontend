@@ -13,7 +13,7 @@
 .App {
   max-width: 100vw;
   min-height: 100vh;
-  background: #fafafa;
+  background: #f1f1f1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,9 +29,9 @@
   margin-left: 5%;
   padding-right: 1%;
   padding-left: 1%;
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0px 0px 5px 5px;
   background-color: #fcfcfc;
-  box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+  box-shadow: 0px 1px 10px rgba(0, 2, 90, 0.25);
   position: fixed;
   display: flex;
   top: 0px;
@@ -41,27 +41,40 @@
 
 .User-Icon {
   height: 32px;
+  cursor: pointer;
 }
 
 .Hero-Container {
-  width: 1024px;
-  height: 512px;
+  width: 70%;
+  height: 448px;
   margin-top: 96px;
-  background-image: url("/src/assets/images/placeholder.jpg");
+  background-image: url("/src/assets/images/LecturingImage.jpg");
   background-size: cover;
   background-position: center;
-  box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+  box-shadow: 0px 1px 10px rgba(0, 2, 90, 0.25);
   display: flex;
   flex-direction: column;
   justify-content: end;
 }
 
+.Hero-Text-Container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  padding: 16px;
+  width: fit-content;
+  border-radius: 5px;
+  margin: 32px;
+}
+
 .Hero-Title {
-  color: white;
+  color: black;
+  font-size: larger;
+  font-weight: bold;
 }
 
 .Hero-Undertitle {
-  color: white;
+  color: black;
 }
 
 .Course-Hierarchy-Container {
@@ -92,10 +105,10 @@
 }
 
 .Logo-Text {
-  background: linear-gradient(to right, #00f17d, #00cee9);
+  background: #167DC3;
   font-family: 'LogoFont', sans-serif;
   font-size: x-large;
-  padding: 16px;
+  padding: 4px;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -108,12 +121,12 @@
   background-color: #fafafa;
   border: solid 1px;
   border-color: rgb(150, 150, 150);
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 0px;
   display: flex;
   align-items: left;
   flex-direction: column;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0px 1px 10px rgba(0, 2, 90, 0.25);
 }
 
 .Course-Card-Info {
@@ -169,12 +182,12 @@
   background-color: #fafafa;
   border: solid 1px;
   border-color: rgb(150, 150, 150);
-  border-radius: 10px;
+  border-radius: 5px;
   margin-bottom: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0px 1px 10px rgba(0, 2, 90, 0.25);
 }
 
 h2 {
@@ -182,9 +195,22 @@ h2 {
   text-align: center;
   border-bottom: 1px solid;
   border-color: rgb(150, 150, 150);
-  color: #00abc2;
+  color: #167DC3;
   font-family: 'LogoFont', sans-serif;;
   font-size: xx-large;
+  letter-spacing: 1px;
+  padding-bottom: 8px;
+  margin: 0px;
+}
+
+h3 {
+  width: 100%;
+  text-align: left;
+  border-bottom: 1px solid;
+  border-color: #032D53;
+  color: #032D53;
+  font-family: 'LogoFont', sans-serif;;
+  font-size: x-large; 
   letter-spacing: 1px;
   padding-bottom: 8px;
   margin: 0px;
@@ -198,7 +224,7 @@ h2 {
   padding-right: 15%;
   padding-top: 64px;
   padding-bottom: 64px;
-  background: radial-gradient(circle, #28464b, #202c2e)
+  background: radial-gradient(circle, #032D54, #021e38);
 }
 
 .Course-Main-Card-Container {
@@ -237,14 +263,19 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 64px;
   width: 512px;
   height: 512px;
   gap: 16px;
 }
 
 .Search-Container {
+  width: 80%;
+  margin-top: 128px;
+  gap: 64px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 p {
@@ -252,25 +283,42 @@ p {
 }
 
 button {
-  width: 96px;
   height: 32px;
   margin: 8px;
-  background-color: #00cee9;
+  background-color: #167DC3;
   border-radius: 5px;
   background: transparent;
-  color: #00cee9;
-  border-color: #00cee9;
+  color: #167DC3;
+  border-color: #167DC3;
   border-style: solid;
   font-size: medium;
+  cursor: pointer;
 }
 
-.Button-Large {
+button:disabled {
+  background-color: #24323b4f;
+  background: transparent;
+  color: #24323b4f;
+  border-color: #24323b4f;
+  cursor: default;
+}
+
+.Enroll-Button {
+  background: linear-gradient(to top, #dfb734, #ffcc33, #ffdb58, #ffcc33, #dfb734);
+  color: #032D54;
+  font-size: large;
+  border: none;
   width: 192px;
   height: 64px;
 }
 
+.Button-Header {
+  width: 96px;
+}
+
 .Sign-Up-Button {
-  background-color: #00cee9;
+  width: 96px;
+  background-color: #167DC3;
   background: solid;
   color: #fafafa;
 }
@@ -279,17 +327,23 @@ button {
   width: 100%;
   height: 32px;
   padding-left: 4px;
-  border-radius: 15px;
+  border-radius: 5px;
   border: none;
   background: transparent;
 }
 
 input {
-  width: 100%;
-  border-radius: 15px;
+  border-radius: 5px;
   border: solid 1px rgb(150, 150, 150);
   padding: 8px;
-  background: transparent;
+  background: #ffffff;
+}
+
+select {
+  border-radius: 5px;
+  border: solid 1px rgb(150, 150, 150);
+  padding: 8px;
+  background: #ffffff;
 }
 
 .Search-Input:focus {
@@ -302,26 +356,28 @@ Search-Bar-Container {
 }
 
 .Search-Bar-Input-Container {
-  width: 512px;
+  max-width: 512px;
   height: 32px;
   padding-left: 8px;
-  border-radius: 15px;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   font-size: medium;
   border-style: solid;
+  background: #fafafa;
   border: solid 1px rgb(150, 150, 150);
 }
 
 .Search-Bar-Result-Container {
-  min-width: 520px;
+  max-width: 520px;
   position: fixed;
   display: flex;
   flex-direction: column;
   background-color: #fcfcfc;
   border: solid 1px rgb(150, 150, 150);
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 16px;
+  z-index: 1000;
 }
 
 .Search-Bar-Result-Container p:nth-child(even) {
@@ -357,4 +413,124 @@ Search-Bar-Container {
 .rating-Container {
   display: flex;
   align-items: end;
+}
+
+.Dropdown-Content-Container {
+  display: flex;
+  flex-direction: column;
+}
+
+.Filter-Container {
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+  min-width: 320px;
+  gap: 32px;
+}
+
+.custom-slider {
+  height: 10px;
+  background: #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.custom-track {
+  background: #fafafa;
+  height: 10px;
+  border-radius: 5px;
+  border: solid 1px rgb(150, 150, 150);
+}
+
+.custom-thumb {
+  height: 20px;
+  width: 20px;
+  background: #167DC3;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -5px;
+}
+
+.Results-Container {
+  display: flex;
+  flex-direction: column;
+  min-height: 800px;
+  gap: 16px;
+  flex-grow: 1;
+}
+
+.Search-Result-Card-Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fafafa;
+  flex-grow: 1;
+  max-height: 128px;
+  border-radius: 5px;
+  border: solid 1px rgb(150, 150, 150);
+  box-shadow: 0px 1px 10px rgba(0, 2, 90, 0.25);
+}
+
+.Pager-Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  max-height: 32px;
+}
+
+.Order-Overview-Main-Container {
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  padding-top: 96px;
+  padding-bottom: 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  background: radial-gradient(circle, #032D54, #021e38)
+}
+
+.Payment-Information-Container {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  gap: 8px;
+  padding: 64px;
+  border-radius: 5px;
+  background: #f1f1f1;
+}
+
+.Duration-Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.User-Option-Container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  background-color: #fafafa;
+  padding: 8px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 10px rgba(0, 2, 90, 0.25);
+}
+
+.User-Option-Container p {
+  margin: 0;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* Add a divider between items, except after the last one */
+.User-Option-Container p:not(:last-child) {
+  border-bottom: 1px solid #ddd;
 }

@@ -32,6 +32,7 @@ function SearchBar() {
           categoryName: input,
           topicName: input
         });
+        console.log(responseData);
         setSearchResult(responseData);
       } catch (error) {
         console.error("Error fetching search results:", error);
@@ -57,21 +58,23 @@ function SearchBar() {
 
       if(searchResult.scoredCategories != null && searchResult.scoredCategories.length > 0) {
         searchResult.scoredCategories.map((category, index) => {
-        resultList.push(<p>Category: {category.category}</p>);
+        resultList.push(<p onClick={() => {navigate(`/search?categoryid=${category.category.category}`)}}>Category: {category.category.category}</p>);
         });
       }
       
       if(searchResult.scoredTopics != null && searchResult.scoredTopics.length > 0) {
         searchResult.scoredTopics.map((topic, index) => {
-          resultList.push(<p>Topic: {topic.topic.topic}</p>);
+          resultList.push(<p onClick={() => {navigate(`/search?topics=${topic.topic.topic}:${topic.topic.id}`)}}>Topic: {topic.topic.topic}</p>);
         });
       }
 
       if(searchResult.scoredCourses != null && searchResult.scoredCourses.length > 0) {
         searchResult.scoredCourses.map((course, index) => {
-          resultList.push(<p onClick={() => {navigate(`/course/${course.course.id}`)}}>Course: {course.course.courseName}</p>);
+          resultList.push(<p onClick={() => {navigate(`/course/${course.course.id}`)}}>Course: {course.course.courseName}    <strong>{course.course.price} {course.course.currency.currency}</strong></p>);
         });
       }
+    } else {
+      return <p>No results</p>
     }
 
     return resultList;
