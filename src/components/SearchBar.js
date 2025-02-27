@@ -24,16 +24,18 @@ function SearchBar() {
     }
   }, [inputValue]);
 
+  const handleResponse = (response) => {
+    setSearchResult(response.data);
+  }
+
   const debouncedSearch = useCallback(
     debounce(async (input) => {
       try {
-        const responseData = await Post("api/anonymous/search", {
+        await Post("api/anonymous/search", {
           courseName: input,
           categoryName: input,
           topicName: input
-        });
-        console.log(responseData);
-        setSearchResult(responseData);
+        }, handleResponse);
       } catch (error) {
         console.error("Error fetching search results:", error);
       } finally {

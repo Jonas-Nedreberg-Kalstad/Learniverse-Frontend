@@ -29,11 +29,9 @@ function LoginContainer() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const userCredentials = { email:inputEmailValue, password:inputPasswordValue }
-    console.log(`${URL.BACKEND}/api/anonymous/authenticate`);
     axios.post(`${URL.BACKEND}/api/anonymous/authenticate`, userCredentials)
     .then(response => {
       if(response.status == 200) {
-        console.log("login successful")
         setCookie('JWT', response.data.response, {maxAge: 12*3600, path: '/'});
         
         // Decodes the jwt token and checks the users authority.
@@ -41,7 +39,6 @@ function LoginContainer() {
         
         window.location.href = '/';
       }
-      console.log(response);
     })
     .catch(error => {
       // Handle error

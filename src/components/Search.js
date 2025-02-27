@@ -1,7 +1,7 @@
 import '../App.css';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import Dropdown from './FilterDropdown';
+import FilterDrowdown from './FilterDropdown';
 import PriceSlider from './PriceSlider';
 import SearchTopic from './SearchTopic';
 import SearchResultCard from './SearchResultCard';
@@ -78,35 +78,32 @@ function Search() {
     fetchResults();
   }, [selectedCategory, selectedTopics, price, selectedLevel, page]);
 
+  const handleResponse = (response) => {
+    setResultCount(response.data.resultsFound);
+    setResults(Array.isArray(response.data.courses) ? response.data.courses : []);
+  }
+
   // general asynchronous post method to fetch and update the search result array.
   const fetchResults = async () => {
     const requestData = {
-      category: getCategoryID(selectedCategory),
+      categoryId: getCategoryID(selectedCategory),
       topicIds: selectedTopics?.map(({ id }) => id) || null,
       difficultyLevelId: getLevelID(selectedLevel),
       maxPrice: price
     };
 
     console.log(requestData);
-    
-    try {
-      const response = await Post(`api/anonymous/search/findCourseByFilteringIdsAndMaxPrice?page=${page - 1}&size=5`, requestData);
-      console.log(response);
-      setResultCount(response.resultsFound);
-      setResults(Array.isArray(response.courses) ? response.courses : []);
-    } catch (error) {
-      console.error("Error fetching results:", error);
-      setResults([]);
-    }
+
+    Post(`api/anonymous/search/findCourseByFilteringIdsAndMaxPrice?page=${page > 0 ? page - 1 : 0}&size=5`, requestData, handleResponse);
   };
 
   return (
     <main className="Search-Container">
       <div className='Filter-Container'>
-        <Dropdown name="Category" selectedOption={selectedCategory} options={categoryOptions} onSelectedOption={setSelectedCategory} />
+        <FilterDrowdown name="Category" selectedOption={selectedCategory} options={categoryOptions} onSelectedOption={setSelectedCategory} />
         <SearchTopic initializeTopics={selectedTopics} onSelectedTopics={setSelectedTopics} />
         <PriceSlider price={price} onChangePrice={setPrice} />
-        <Dropdown name='Level' options={levelOptions} selectedOption={selectedLevel} onSelectedOption={setSelectedLevel} />
+        <FilterDrowdown name='Level' options={levelOptions} selectedOption={selectedLevel} onSelectedOption={setSelectedLevel} />
       </div>
       <div className='Results-Container'>
         <text>Results: {resultCount}</text>

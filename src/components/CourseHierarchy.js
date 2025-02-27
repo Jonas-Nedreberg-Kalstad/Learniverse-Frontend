@@ -5,31 +5,28 @@ import { Get } from '../utils/fetch';
 import { URL } from '../utils/url';
 import { useEffect, useState } from 'react';
 
-function CourseHierarchy({imgLink, title, creator}) {
+function CourseHierarchy() {
 
-  const [listOfCourses, setListOfCourses] = useState([]);
+  const [listOfCourses, setListOfCourses] = useState(null);
   const [hasRecievedResponse, setHasRecievedResponse] = useState(false);
   
   const navigate = useNavigate(URL.BACKEND, "api/");
 
+  const handleResponse = (response) => {
+    setListOfCourses(response.data);
+  } 
+
   useEffect(() => {
-
-    const fetchData = async () => {
-      let responseData = await Get("api/anonymous/mostPopularCourses?page:0&size:5");
-      setListOfCourses(responseData);
-    }
-
-    fetchData();
+    Get("api/anonymous/mostPopularCourses?page:0&size:5", handleResponse);
   }, [])
 
   useEffect(() => {
     setHasRecievedResponse(true);
-    console.log(listOfCourses);
   }, [listOfCourses])
 
   const createCourseCards = () => {
     return(
-      listOfCourses.map((course, index) => (
+      listOfCourses?.map((course, index) => (
         <CourseCard
           id={course.id} // Ideally, use course.id if available
           imgLink="https://foundr.com/wp-content/uploads/2023/04/How-to-create-an-online-course.jpg.webp"

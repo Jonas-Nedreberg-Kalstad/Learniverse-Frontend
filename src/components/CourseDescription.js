@@ -17,7 +17,7 @@ function CourseDescription({description, category, topics}) {
     <section className="Course-Description-Container">
       <header className="Course-Meta-Container">
         <p><strong>Category:</strong></p>
-        <span><button onClick={() => { navigate(`/search?categoryid=${category.category}`) }}>
+        <span><button onClick={() => { navigate(`/search?category=${category.category}`) }}>
           {category.category}
         </button></span>
   

@@ -34,8 +34,6 @@ const setRolesFromJWT = (token) => {
 
     const decodedToken = token ? jwtDecode(token) : null;
 
-    console.log(decodedToken);
-
     if (!decodedToken?.roles) {
         return;
     }

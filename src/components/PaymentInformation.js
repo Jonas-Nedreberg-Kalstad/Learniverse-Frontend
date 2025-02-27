@@ -36,7 +36,6 @@ function PaymentInformation({ data, onSubmit }) {
 
     useEffect(() => {
         setValidInput(validateInput());
-        console.log(cardNumber, " ", month, " ", year, " ", securityCode);
     }, [cardNumber, month, year, securityCode]);
 
     const constructMonthDropdown = () => {

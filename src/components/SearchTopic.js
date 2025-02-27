@@ -52,24 +52,25 @@ function SearchTopic({ initializeTopics, onSelectedTopics }) {
     }
   }, [inputValue]);
 
+  const handleResponse = (response) => {
+    setSearchResult(response.data);
+  }
+
   // method to start a debounced search request to the backend with a 500ms timer.
   const debouncedSearch = useCallback(
     debounce(async (input) => {
       try {
-        const responseData = await Post('api/anonymous/search', {
+        await Post('api/anonymous/search', {
           courseName: '',
           categoryName: '',
           topicName: input,
-        });
-        setSearchResult(responseData);
+        }, handleResponse);
       } catch (error) {
         console.error('Error fetching search results:', error);
       } finally {
         setIsDebouncedFinished(true);
       }
-    }, 500),
-    []
-  );
+    }, 500), []);
 
   // Trigger a debounced search when the input changes. 
   // If the user continues typing within 500ms, the timer resets, ensuring only the final input is sent to the backend to prevent excessive API calls.

@@ -11,7 +11,7 @@ function Header() {
   const cookies = new Cookies();  // Initialize Cookies instance
   const token = cookies.get("JWT");
 
-  console.log(getIsAdmin());
+  
 
   return (
     <header className="Header-Container">

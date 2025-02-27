@@ -4,12 +4,16 @@ import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
 
-export const Get = async (endpoint) => {
+export const Get = async (endpoint, handleResponse) => {
   try {
     const token = cookies.get("JWT")
     const header = token ? {headers: {Authorization: `Bearer ` + token}} : {};
-    console.log(header);
     const response = await axios.get(`${URL.BACKEND}/${endpoint}`, header);
+
+    if(typeof handleResponse === "function") {
+      handleResponse(response);
+    }
+
     return response.data;
   } catch (error) {
     console.error("GET request error:", error);
@@ -18,11 +22,16 @@ export const Get = async (endpoint) => {
   }
 };
 
-export const Post = async (endpoint, data) => {
+export const Post = async (endpoint, data, handleResponse) => {
   try {
     const token = cookies.get("JWT")
     const header = token ? {headers: {Authorization: `Bearer ` + token}} : {};
     const response = await axios.post(`${URL.BACKEND}/${endpoint}`, data, header);
+
+    if(typeof handleResponse === "function") {
+      handleResponse(response);
+    }
+
     return response.data;
   } catch (error) {
     console.error("POST request error:", error);

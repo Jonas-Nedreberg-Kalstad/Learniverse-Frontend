@@ -6,7 +6,9 @@ import { useState } from 'react';
 function PriceSlider({ price, onChangePrice }) {
 
   const [maxValue, setMaxValue] = useState(50000);
-  const [value, setValue] = useState(price ? price : maxValue);
+  const [value, setValue] = useState(price !== undefined && price !== null ? price : maxValue);
+
+
 
   return (
     <div>

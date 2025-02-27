@@ -37,7 +37,6 @@ function Payment() {
 
   useEffect(() => {
     if(paymentData != null) {
-      console.log(paymentData);
       Post("api/user/orders/create", paymentData, handlePaymentResponse)
     }
   }, [paymentData])
