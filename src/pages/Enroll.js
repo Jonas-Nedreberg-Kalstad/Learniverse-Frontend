@@ -1,8 +1,8 @@
 import '../App.css';
-import Header from '../components/Header';
-import LoginContainer from '../components/Login';
-import Footer from '../components/Footer';
-import Payment from '../components/Payment';
+import Header from '../components/header/Header';
+import LoginContainer from '../components/login/Login';
+import Footer from '../components/footer/Footer';
+import Payment from '../components/enroll/Payment';
 
 function Login() {
   return (

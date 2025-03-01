@@ -1,6 +1,6 @@
-import '../App.css';
+import '../../App.css';
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { Post } from '../utils/fetch';
+import { Post } from '../../utils/fetch';
 import { debounce } from 'lodash';
 
 function SearchTopic({ initializeTopics, onSelectedTopics }) {

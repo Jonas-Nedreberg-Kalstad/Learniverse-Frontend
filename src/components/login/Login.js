@@ -1,9 +1,9 @@
-import '../App.css';
+import '../../App.css';
 import React, { useState } from "react";
 import axios from "axios";
 import { useCookies } from 'react-cookie';
-import { URL } from '../utils/url';
-import { setRolesFromJWT } from '../utils/role';
+import { URL } from '../../utils/url';
+import { setRolesFromJWT } from '../../utils/role';
 
 function LoginContainer() {
 

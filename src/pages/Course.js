@@ -1,8 +1,8 @@
 import '../App.css';
-import Header from '../components/Header.js';
-import Footer from '../components/Footer.js';
-import CourseMain from '../components/CourseMain.js';
-import CourseDescription from '../components/CourseDescription.js';
+import Header from '../components/header/Header.js';
+import Footer from '../components/footer/Footer.js';
+import CourseMain from '../components/course/CourseMain.js';
+import CourseDescription from '../components/course/CourseDescription.js';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Get } from '../utils/fetch.js';

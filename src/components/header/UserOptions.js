@@ -1,9 +1,9 @@
 import React from 'react';
-import '../App.css';
+import '../../App.css';
 import { useState, useEffect, useRef } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
-import { getIsAdmin, getIsProvider, getIsUser } from '../utils/role';
+import { getIsAdmin, getIsProvider, getIsUser } from '../../utils/role';
 
 function UserOptions() {
 
@@ -35,7 +35,7 @@ function UserOptions() {
 
   return (
     <div ref={containerRef}>
-        <img className='User-Icon' onClick={() => setShowMenu(!showMenu)} src={require("../assets/images/user-icon.png")} />
+        <img className='User-Icon' onClick={() => setShowMenu(!showMenu)} src={require("../../assets/images/user-icon.png")} />
         { showMenu  && (
             <div className='User-Option-Container'>
                 <p>My Profile</p>

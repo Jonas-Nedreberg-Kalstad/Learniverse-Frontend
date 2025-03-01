@@ -1,7 +1,7 @@
 import '../App.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import SignUpContainer from '../components/Signup';
+import Header from '../components/header/Header';
+import Footer from '../components/footer/Footer';
+import SignUpContainer from '../components/signup/Signup';
 
 function Signup() {
   return (

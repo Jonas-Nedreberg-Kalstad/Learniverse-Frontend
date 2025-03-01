@@ -1,8 +1,8 @@
-import '../App.css';
+import '../../App.css';
 import CourseCard from './CourseCard';
 import { useNavigate } from "react-router-dom";
-import { Get } from '../utils/fetch';
-import { URL } from '../utils/url';
+import { Get } from '../../utils/fetch';
+import { URL } from '../../utils/url';
 import { useEffect, useState } from 'react';
 
 function CourseHierarchy() {

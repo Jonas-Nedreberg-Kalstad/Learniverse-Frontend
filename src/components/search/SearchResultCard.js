@@ -1,6 +1,6 @@
-import '../App.css';
+import '../../App.css';
 import { useNavigate } from "react-router-dom";
-import Rating from './Rating';
+import Rating from '../Rating';
 
 function SearchResultCard({id, imgLink, title, creator, rating, amount, price, currency}) {
 

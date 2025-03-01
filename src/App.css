@@ -377,7 +377,6 @@ Search-Bar-Container {
   border: solid 1px rgb(150, 150, 150);
   border-radius: 5px;
   padding: 16px;
-  z-index: 1000;
 }
 
 .Search-Bar-Result-Container p:nth-child(even) {

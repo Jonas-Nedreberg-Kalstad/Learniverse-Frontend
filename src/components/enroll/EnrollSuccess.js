@@ -1,5 +1,5 @@
-import '../App.css';
-import Rating from './Rating';
+import '../../App.css';
+import Rating from '../Rating';
 import Duration from './Duration';
 
 function EnrollSuccess({ data }) {

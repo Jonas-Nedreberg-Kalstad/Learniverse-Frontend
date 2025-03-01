@@ -1,4 +1,4 @@
-import '../App.css';
+import '../../App.css';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import FilterDrowdown from './FilterDropdown';
@@ -6,7 +6,7 @@ import PriceSlider from './PriceSlider';
 import SearchTopic from './SearchTopic';
 import SearchResultCard from './SearchResultCard';
 import Pager from './Pager';
-import { Post } from '../utils/fetch';
+import { Post } from '../../utils/fetch';
 
 // initialize the different category options
 const categoryOptions = [

@@ -1,7 +1,7 @@
-import '../App.css';
+import '../../App.css';
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Post } from "../utils/fetch";
+import { Post } from "../../utils/fetch";
 import { debounce } from 'lodash';
 
 function SearchBar() {
@@ -60,7 +60,7 @@ function SearchBar() {
 
       if(searchResult.scoredCategories != null && searchResult.scoredCategories.length > 0) {
         searchResult.scoredCategories.map((category, index) => {
-        resultList.push(<p onClick={() => {navigate(`/search?categoryid=${category.category.category}`)}}>Category: {category.category.category}</p>);
+        resultList.push(<p onClick={() => {navigate(`/search?category=${category.category.category}`)}}>Category: {category.category.category}</p>);
         });
       }
       
@@ -85,7 +85,7 @@ function SearchBar() {
   return (
     <div className="Search-Bar-Container">
         <div className='Search-Bar-Input-Container' >
-          <img src={require("../assets/images/search-icon.png")} style={{height:'75%'}} />
+          <img src={require("../../assets/images/search-icon.png")} style={{height:'75%'}} />
           <input onBlur={() => {setTimeout(() => {setIsFocused(false)}, 250)}} onFocus={search} onChange={handleInputChange} className='Search-Input' type='text' placeholder='Search' />
         </div>
         {isFocused && isDebouncedFinished && (<div className='Search-Bar-Result-Container'>

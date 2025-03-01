@@ -1,9 +1,9 @@
-import '../App.css';
+import '../../App.css';
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import OrderOverview from './OrderOverview';
 import PaymentInformation from './PaymentInformation';
-import { Get, Post } from '../utils/fetch';
+import { Get, Post } from '../../utils/fetch';
 import EnrollSuccess from './EnrollSuccess';
 
 function Payment() {

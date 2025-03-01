@@ -1,4 +1,4 @@
-import '../App.css';
+import '../../App.css';
 
 function Breadcrumps({category, courseName}) {
   return (

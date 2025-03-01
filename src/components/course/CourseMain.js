@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import '../App.css';
+import '../../App.css';
 import Breadcrumps from './Breadcrumbs';
-import Rating from './Rating';
+import Rating from '../Rating';
 
 function CourseCard({id, title, creator, price, currency, rating, reviewAmount}) {
 

@@ -1,4 +1,4 @@
-import '../App.css';
+import '../../App.css';
 import TopicCard from './TopicCard.js';
 import { useNavigate } from "react-router-dom";
 

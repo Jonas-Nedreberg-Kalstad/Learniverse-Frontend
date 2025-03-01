@@ -1,7 +1,7 @@
 import '../App.css';
-import Header from '../components/Header';
-import LoginContainer from '../components/Login';
-import Footer from '../components/Footer';
+import Header from '../components/header/Header';
+import LoginContainer from '../components/login/Login';
+import Footer from '../components/footer/Footer';
 
 function Login() {
   return (

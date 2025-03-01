@@ -1,10 +1,10 @@
 import '../App.css';
-import Header from '../components/Header.js';
-import Hero from '../components/Hero.js';
-import CourseHierarchy from '../components/CourseHierarchy.js';
-import Footer from '../components/Footer.js';
-import TrendingTopics from '../components/TrendingTopics.js';
-import WantToTeach from '../components/WantToTeach.js';
+import Header from '../components/header/Header.js';
+import Hero from '../components/landing/Hero.js';
+import CourseHierarchy from '../components/landing/CourseHierarchy.js';
+import Footer from '../components/footer/Footer.js';
+import TrendingTopics from '../components/landing/TrendingTopics.js';
+import WantToTeach from '../components/landing/WantToTeach.js';
 
 function LandingPage() {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import '../../App.css';
 import Slider from 'react-slider';
 import { useState } from 'react';
 
