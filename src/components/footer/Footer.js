@@ -8,7 +8,7 @@ function Footer() {
       </div>
       <div className='Rights-Container'>
         <div style={{display:'flex', flexDirection:'row', alignItems:'center' }}>
-          <img style={{height:'48px'}} src={require('../../assets/images/LCLogo.png')}/>
+          <img style={{height:'48px'}} src={require('../../public/assets/images/LCLogo.png')}/>
           <a className='Logo-Text'>Learniverse Connect</a>
         </div>
       </div>

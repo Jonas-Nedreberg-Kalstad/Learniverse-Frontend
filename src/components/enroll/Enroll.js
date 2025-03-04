@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import OrderOverview from './OrderOverview';
 import PaymentInformation from './PaymentInformation';
-import { Get, Post } from '../../utils/fetch';
 import EnrollSuccess from './EnrollSuccess';
+import { Fetch } from '../../service/apiService';
 
 function Payment() {
 
@@ -19,7 +19,7 @@ function Payment() {
   };
 
   useEffect(() => {
-    Get(`api/anonymous/courses/${id}`, handleResponse);
+    Fetch("GET", `api/anonymous/courses/${id}`, null, handleResponse);
   }, [id])
 
   const handlePaymentResponse = (data) => {
@@ -37,7 +37,7 @@ function Payment() {
 
   useEffect(() => {
     if(paymentData != null) {
-      Post("api/user/orders/create", paymentData, handlePaymentResponse)
+      Fetch("POST", `api/user/orders/create`, paymentData, handlePaymentResponse);
     }
   }, [paymentData])
 

@@ -1,14 +1,14 @@
 import '../../App.css';
 import React, { useState } from "react";
 import axios from "axios";
-import { useCookies } from 'react-cookie';
 import { URL } from '../../utils/url';
+import Cookies from 'universal-cookie';
 import { setRolesFromJWT } from '../../utils/role';
+import { Fetch } from '../../service/apiService';
 
-function LoginContainer() {
+const cookies = new Cookies();
 
-  const [cookies, setCookie, removeCookie] = useCookies();
-
+function Login() {
   const [inputEmailValue, setInputEmailValue] = useState("")
   const [inputPasswordValue, setInputPassowrdValue] = useState("")
 
@@ -26,24 +26,26 @@ function LoginContainer() {
     }
   };
 
+  const handleResponse = (response) => {
+    if(response.status == 200) {
+      cookies.set('JWT', response.data.response, {maxAge: 12*3600, path: '/'});
+
+      // Decodes the jwt token and checks the users authority.
+      setRolesFromJWT(response.data.response);
+      
+      window.location.href = '/';
+    }
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const userCredentials = { email:inputEmailValue, password:inputPasswordValue }
-    axios.post(`${URL.BACKEND}/api/anonymous/authenticate`, userCredentials)
-    .then(response => {
-      if(response.status == 200) {
-        setCookie('JWT', response.data.response, {maxAge: 12*3600, path: '/'});
-        
-        // Decodes the jwt token and checks the users authority.
-        setRolesFromJWT(response.data.response);
-        
-        window.location.href = '/';
-      }
-    })
-    .catch(error => {
-      // Handle error
-      console.log(error);
-    });
+
+    const data = {
+      email:inputEmailValue, 
+      password:inputPasswordValue 
+    };
+
+    Fetch("POST", "api/anonymous/authenticate", data, handleResponse);
   };
 
   return (
@@ -67,4 +69,4 @@ function LoginContainer() {
   );
 }
 
-export default LoginContainer;
+export default Login;

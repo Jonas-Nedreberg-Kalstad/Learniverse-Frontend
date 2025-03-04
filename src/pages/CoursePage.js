@@ -1,0 +1,19 @@
+import '../App.css';
+import Header from '../components/header/Header.js';
+import Footer from '../components/footer/Footer.js';
+import Course from '../components/course/Course.js';
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Fetch } from '../service/apiService.js';
+
+function CoursePage() {
+  return (
+    <div className="App">
+      <Header />
+      <Course />
+      <Footer />
+    </div>
+  );
+}
+
+export default CoursePage;

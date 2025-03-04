@@ -3,14 +3,14 @@ import Header from '../components/header/Header';
 import Search from '../components/search/Search';
 import Footer from '../components/footer/Footer';
 
-function Login() {
+function SearchPage() {
   return (
     <div className='App'>
-        <Header />
-        <Search />
-        <Footer />
+      <Header />
+      <Search />
+      <Footer />
     </div>
   );
 }
 
-export default Login;
+export default SearchPage;

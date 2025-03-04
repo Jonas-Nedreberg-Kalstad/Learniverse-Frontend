@@ -6,7 +6,7 @@ import PriceSlider from './PriceSlider';
 import SearchTopic from './SearchTopic';
 import SearchResultCard from './SearchResultCard';
 import Pager from './Pager';
-import { Post } from '../../utils/fetch';
+import { Fetch } from '../../service/apiService';
 
 // initialize the different category options
 const categoryOptions = [
@@ -94,7 +94,7 @@ function Search() {
 
     console.log(requestData);
 
-    Post(`api/anonymous/search/findCourseByFilteringIdsAndMaxPrice?page=${page > 0 ? page - 1 : 0}&size=5`, requestData, handleResponse);
+    Fetch("POST", `api/anonymous/search/findCourseByFilteringIdsAndMaxPrice?page=${page > 0 ? page - 1 : 0}&size=5`, requestData, handleResponse);
   };
 
   return (

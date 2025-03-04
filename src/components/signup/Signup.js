@@ -1,6 +1,6 @@
 import '../../App.css';
 
-function SignUpContainer() {
+function SignUp() {
   return (
     <div className="Login-Container">
         <h2>Sign up</h2>
@@ -47,4 +47,4 @@ function SignUpContainer() {
   );
 }
 
-export default SignUpContainer;
+export default SignUp;

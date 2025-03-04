@@ -2,16 +2,16 @@ import '../App.css';
 import Header from '../components/header/Header';
 import LoginContainer from '../components/login/Login';
 import Footer from '../components/footer/Footer';
-import Payment from '../components/enroll/Payment';
+import Enroll from '../components/enroll/Enroll';
 
-function Login() {
+function EnrollPage() {
   return (
     <div className='App'>
-        <Header />
-        <Payment />
-        <Footer />
+      <Header />
+      <Enroll />
+      <Footer />
     </div>
   );
 }
 
-export default Login;
+export default EnrollPage;

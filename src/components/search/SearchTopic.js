@@ -1,7 +1,7 @@
 import '../../App.css';
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { Post } from '../../utils/fetch';
 import { debounce } from 'lodash';
+import { Fetch } from '../../service/apiService';
 
 function SearchTopic({ initializeTopics, onSelectedTopics }) {
   const [isFocused, setIsFocused] = useState(false);
@@ -60,11 +60,15 @@ function SearchTopic({ initializeTopics, onSelectedTopics }) {
   const debouncedSearch = useCallback(
     debounce(async (input) => {
       try {
-        await Post('api/anonymous/search', {
+
+        const data = {
           courseName: '',
           categoryName: '',
-          topicName: input,
-        }, handleResponse);
+          topicName: input
+        };
+
+        Fetch('POST', "api/anonymous/search", data, handleResponse); // Send the request to the backend
+
       } catch (error) {
         console.error('Error fetching search results:', error);
       } finally {

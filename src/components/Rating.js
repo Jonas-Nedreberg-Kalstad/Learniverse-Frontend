@@ -1,9 +1,9 @@
 import React from 'react';
 import { useMemo } from 'react';
 import '../App.css';
-import fullStarIcon from '../assets/images/full-star-icon.png';
-import halfStarIcon from '../assets/images/half-star-icon.png';
-import emptyStarIcon from '../assets/images/empty-star-icon.png';
+import fullStarIcon from '../public/assets/images/full-star-icon.png';
+import halfStarIcon from '../public/assets/images/half-star-icon.png';
+import emptyStarIcon from '../public/assets/images/empty-star-icon.png';
 
 function Rating({ rating, amount, light }) {
   

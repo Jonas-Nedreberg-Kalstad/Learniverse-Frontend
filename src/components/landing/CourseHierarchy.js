@@ -1,7 +1,7 @@
 import '../../App.css';
 import CourseCard from './CourseCard';
 import { useNavigate } from "react-router-dom";
-import { Get } from '../../utils/fetch';
+import { Fetch } from '../../service/apiService';
 import { URL } from '../../utils/url';
 import { useEffect, useState } from 'react';
 
@@ -17,7 +17,7 @@ function CourseHierarchy() {
   } 
 
   useEffect(() => {
-    Get("api/anonymous/mostPopularCourses?page:0&size:5", handleResponse);
+    Fetch("GET", "api/anonymous/mostPopularCourses?page:0&size:5", null, handleResponse);
   }, [])
 
   useEffect(() => {

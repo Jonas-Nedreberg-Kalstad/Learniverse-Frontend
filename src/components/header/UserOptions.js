@@ -35,7 +35,7 @@ function UserOptions() {
 
   return (
     <div ref={containerRef}>
-        <img className='User-Icon' onClick={() => setShowMenu(!showMenu)} src={require("../../assets/images/user-icon.png")} />
+        <img className='User-Icon' onClick={() => setShowMenu(!showMenu)} src={require("../../public/assets/images/user-icon.png")} />
         { showMenu  && (
             <div className='User-Option-Container'>
                 <p>My Profile</p>

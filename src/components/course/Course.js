@@ -1,13 +1,11 @@
-import '../App.css';
-import Header from '../components/header/Header.js';
-import Footer from '../components/footer/Footer.js';
-import CourseMain from '../components/course/CourseMain.js';
-import CourseDescription from '../components/course/CourseDescription.js';
+import '../../App.css';
+import CourseMain from './CourseMain.js';
+import CourseDescription from './CourseDescription.js';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Get } from '../utils/fetch.js';
+import { Fetch } from '../../service/apiService.js';
 
-function CoursePage() {
+function Course() {
 
   const { id } = useParams();
 
@@ -18,7 +16,7 @@ function CoursePage() {
   }
 
   useEffect(() => {
-    Get(`api/anonymous/courses/${id}`, handleResponse);
+    Fetch("GET", `api/anonymous/courses/${id}`, null, handleResponse);
   }, [])
 
   if(courseData == null) {
@@ -26,13 +24,11 @@ function CoursePage() {
   }
 
   return (
-    <div className="App">
-      <Header />
+    <div>
       <CourseMain id={id} title={courseData.courseName} creator={courseData.createdBy} price={courseData.price} currency={courseData.currency.currency} rating={courseData.averageRating} reviewAmount={courseData.numberOfReviews} />
       <CourseDescription description={courseData.description} category={courseData.category} topics={courseData.topics} />
-      <Footer />
     </div>
   );
 }
 
-export default CoursePage;
+export default Course;

@@ -1,12 +1,12 @@
 import './App.css';
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Landing from './pages/Landing.js';
-import Course from './pages/Course.js';
-import Enroll from './pages/Enroll.js';
-import Login from './pages/Login.js';
-import Signup from './pages/Signup.js';
-import Search from './pages/Search.js';
+import LandingPage from './pages/LandingPage.js';
+import CoursePage from './pages/CoursePage.js';
+import EnrollPage from './pages/EnrollPage.js';
+import LoginPage from './pages/LoginPage.js';
+import SignupPage from './pages/SignupPage.js';
+import SearchPage from './pages/SearchPage.js';
 import { setRolesFromJWT } from './utils/role.js';
 import Cookies from 'universal-cookie';
 
@@ -22,12 +22,12 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/course/:id" element={<Course />} />
-          <Route path="/course/:id/enroll" element={<Enroll />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/course/:id" element={<CoursePage />} />
+          <Route path="/course/:id/enroll" element={<EnrollPage />} />
         </Routes>
       </Router>
     </div>
