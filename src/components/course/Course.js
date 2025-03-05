@@ -4,6 +4,8 @@ import CourseDescription from './CourseDescription.js';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Fetch } from '../../service/apiService.js';
+import courseService from '../../service/courseService.js';
+import CourseReviews from './CourseReviews.js';
 
 function Course() {
 
@@ -13,20 +15,18 @@ function Course() {
 
   const handleResponse = (response) => {
     setCourseData(response.data);
+    console.log(response.data);
   }
 
   useEffect(() => {
-    Fetch("GET", `api/anonymous/courses/${id}`, null, handleResponse);
-  }, [])
-
-  if(courseData == null) {
-    return <text>Loading...</text>
-  }
+    courseService.getCourse(id, handleResponse);
+  }, [id])
 
   return (
     <div>
-      <CourseMain id={id} title={courseData.courseName} creator={courseData.createdBy} price={courseData.price} currency={courseData.currency.currency} rating={courseData.averageRating} reviewAmount={courseData.numberOfReviews} />
-      <CourseDescription description={courseData.description} category={courseData.category} topics={courseData.topics} />
+      <CourseMain course={courseData} />
+      <CourseDescription course={courseData} />
+      <CourseReviews course={courseData} />
     </div>
   );
 }
