@@ -5,7 +5,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import { getIsAdmin, getIsProvider, getIsUser } from '../../utils/role';
 
-function UserOptions() {
+function LoginOptions() {
 
     const [showMenu, setShowMenu] = useState(false);
     const containerRef = useRef(null);
@@ -28,26 +28,17 @@ function UserOptions() {
         };
       }, []);
 
-    const removeJWT = () => {
-        cookies.remove("JWT");
-        window.location.href = "/";
-    }
-
   return (
-    <div ref={containerRef}>
-        <img className='User-Icon' onClick={() => setShowMenu(!showMenu)} src={require("../../public/assets/images/user-icon.png")} alt='Open user menu'/>
+    <div className='Login-Options-Container' ref={containerRef}>
+        <img className='User-Icon' onClick={() => setShowMenu(!showMenu)} src={require("../../public/assets/images/key-icon.png")} alt='Open login menu' />
         { showMenu  && (
             <div className='User-Option-Container'>
-                <p onClick={() => {navigate("/my-profile/general")}}>My Profile</p>
-                <p onClick={() => {navigate("/my-profile/enrolled-courses")}}>Enrolled Courses</p>
-                {(getIsAdmin() || getIsProvider()) && <p onClick={() => {navigate("/my-courses")}}>My Courses</p>}
-                {getIsAdmin() && <p onClick={() => {navigate("/admin/users")}}>Admin Panel</p>}
-                {getIsAdmin() && <p onClick={() => {window.open("http://localhost:8080/swagger-ui/index.html", "_blank")}}>Api Document</p>}
-                <p onClick={() => removeJWT()}>Log Out</p>
+                <p onClick={() => navigate("/login")}>Login</p>
+                <p onClick={() => navigate("/signup")}>Sign up</p>
             </div>
         )}
     </div>
   );
 }
 
-export default UserOptions;
+export default LoginOptions;
