@@ -6,9 +6,7 @@ import Footer from '../components/footer/Footer';
 function SearchPage() {
   return (
     <div className='App'>
-      <Header />
       <Search />
-      <Footer />
     </div>
   );
 }

@@ -6,9 +6,7 @@ import Footer from '../components/footer/Footer';
 function LoginPage() {
   return (
     <div className='App'>
-      <Header />
       <Login />
-      <Footer />
     </div>
   );
 }

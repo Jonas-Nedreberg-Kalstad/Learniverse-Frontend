@@ -1,15 +1,14 @@
 import '../App.css';
 import Header from '../components/header/Header';
-import LoginContainer from '../components/login/Login';
+import MyCourses from '../components/myCourses/MyCourses';
 import Footer from '../components/footer/Footer';
-import Enroll from '../components/enroll/Enroll';
 
-function EnrollPage() {
+function MyProfilePage() {
   return (
     <div className='App'>
-      <Enroll />
+      <MyCourses />
     </div>
   );
 }
 
-export default EnrollPage;
+export default MyProfilePage;

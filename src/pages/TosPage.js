@@ -1,15 +1,18 @@
 import '../App.css';
 import Header from '../components/header/Header';
-import LoginContainer from '../components/login/Login';
 import Footer from '../components/footer/Footer';
-import Enroll from '../components/enroll/Enroll';
+import Tos from '../components/tos/Tos';
 
-function EnrollPage() {
+function TosPage() {
   return (
     <div className='App'>
-      <Enroll />
+      <br/>
+      <br/>
+      <br/>
+      <Tos />
+      <br/>
     </div>
   );
 }
 
-export default EnrollPage;
+export default TosPage;

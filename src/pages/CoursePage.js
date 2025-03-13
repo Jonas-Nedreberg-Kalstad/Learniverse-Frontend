@@ -9,9 +9,7 @@ import { Fetch } from '../service/apiService.js';
 function CoursePage() {
   return (
     <div className="App">
-      <Header />
       <Course />
-      <Footer />
     </div>
   );
 }

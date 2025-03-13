@@ -1,14 +1,14 @@
 import '../App.css';
 import Header from '../components/header/Header.js';
 import Footer from '../components/footer/Footer.js';
-import Landing from '../components/landing/Landing.js';
+import Admin from '../components/admin/Admin.js';
 
-function LandingPage() {
+function AdminPage() {
   return (
     <div className="App">
-      <Landing />
+      <Admin />
     </div>
   );
 }
 
-export default LandingPage;
+export default AdminPage;
