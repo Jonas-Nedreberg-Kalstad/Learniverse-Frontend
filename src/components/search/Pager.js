@@ -12,11 +12,16 @@ function Pager({ initializeValue, resultCount, onValueChange }) {
     setMaxPage(resultCount ? Math.ceil(resultCount/5) : 1);
   }, [resultCount]);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const increment = () => {
     setValue(prevValue => {
       let newValue = prevValue + 1;
       newValue = newValue < 1 ? 1 : newValue; // Resets the pager if it happens to be out of the bound
       onValueChange(newValue);  // Share updated value with parent
+      scrollToTop();
       return newValue;
     });
   };
@@ -26,12 +31,11 @@ function Pager({ initializeValue, resultCount, onValueChange }) {
       let newValue = prevValue > 1 ? prevValue - 1 : 1;  // Ensure value doesn't go below 1
       newValue = newValue > maxPage ? maxPage : newValue; // Resets the pager if it happens to be out of the bound
       onValueChange(newValue);  // Share updated value with parent
+      scrollToTop();
       return newValue;
     });
   };
   
-
-
   return (
     <div className="Pager-Container">
       <button disabled={value <= 1} onClick={decrement}>˂</button>

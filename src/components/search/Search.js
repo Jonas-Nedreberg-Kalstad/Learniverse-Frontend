@@ -7,6 +7,7 @@ import SearchTopic from './SearchTopic';
 import SearchResultCard from './SearchResultCard';
 import Pager from './Pager';
 import { Fetch } from '../../service/apiService';
+import searchService from '../../service/searchService';
 
 // initialize the different category options
 const categoryOptions = [
@@ -94,31 +95,22 @@ function Search() {
 
     console.log(requestData);
 
-    Fetch("POST", `api/anonymous/search/findCourseByFilteringIdsAndMaxPrice?page=${page > 0 ? page - 1 : 0}&size=5`, requestData, handleResponse);
+    searchService.findCourseByFilteringIdsAndMaxPrice(requestData, handleResponse, page);
   };
 
   return (
     <main className="Search-Container">
       <div className='Filter-Container'>
         <FilterDrowdown name="Category" selectedOption={selectedCategory} options={categoryOptions} onSelectedOption={setSelectedCategory} />
+        <h3>Topics</h3>
         <SearchTopic initializeTopics={selectedTopics} onSelectedTopics={setSelectedTopics} />
         <PriceSlider price={price} onChangePrice={setPrice} />
         <FilterDrowdown name='Level' options={levelOptions} selectedOption={selectedLevel} onSelectedOption={setSelectedLevel} />
       </div>
       <div className='Results-Container'>
         <text>Results: {resultCount}</text>
-        {results.map(({ id, courseName, averageRating, numberOfReviews, price, currency }) => (
-          <SearchResultCard
-            key={id}
-            id={id}
-            imgLink={'https://foundr.com/wp-content/uploads/2023/04/How-to-create-an-online-course.jpg.webp'}
-            title={courseName}
-            creator={'NTNU'}
-            rating={averageRating}
-            amount={numberOfReviews}
-            price={price}
-            currency={currency.currency}
-          />
+        {results.map((course, index) => (
+          <SearchResultCard course={ course }/>
         ))}
         <Pager initializeValue={page} resultCount={resultCount} onValueChange={setPage} />
       </div>

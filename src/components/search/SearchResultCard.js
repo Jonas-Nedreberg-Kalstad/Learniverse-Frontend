@@ -1,23 +1,31 @@
 import '../../App.css';
 import { useNavigate } from "react-router-dom";
 import Rating from '../Rating';
+import { useEffect, useState } from 'react';
 
-function SearchResultCard({id, imgLink, title, creator, rating, amount, price, currency}) {
+function SearchResultCard({ course }) {
 
   const navigate = useNavigate();
 
+  const [image, setImage] = useState(require('../../public/assets/images/placeholder-image.png'));
+
+  useEffect(() => {
+    if(course) {
+      setImage(course.courseImageUrl);
+    }
+  }, [course])
+
   return (
-    <div className="Search-Result-Card-Container" style={{ cursor:'pointer' }} onClick={() => navigate(`/course/${id}`)}>
-      <div style={{display:'flex', flexDirection:'row'}}>
-        <img style={{height:'128px', maxWidth:'100%', borderRadius:'5px 0px 0px 5px'}} src={imgLink} alt='CourseImage'/>
-        <div className='Course-Card-Info'>
-          <text>{title}</text>
-          <Rating rating={rating} amount={amount} light={false} />
-          <text>{creator}</text>
+    <div className="Search-Result-Card-Container" style={{ cursor:'pointer' }} onClick={() => navigate(`/course/${course?.id}`)}>
+      <img src={image} alt='CourseImage'/>
+      
+      <div className='Course-Card-Info'>
+        <text>{course?.courseName}</text>
+        <Rating rating={course?.averageRating} amount={course?.numberOfReviews} light={false} />
+        <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', width:'100%'}}>
+          <text>{course?.provider?.providerName}</text>
+          <b>{course?.price} {course?.currency?.currency}</b>
         </div>
-      </div>
-      <div style={{display:'flex', alignItems:'end', padding:'8px'}}>
-        <b>{price} {currency}</b>
       </div>
     </div>
   );

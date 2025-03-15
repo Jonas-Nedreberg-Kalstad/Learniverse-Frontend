@@ -27,9 +27,9 @@ function FilterDrowdown({name, options, selectedOption, onSelectedOption}) {
           (
             <div className='Dropdown-Content-Container'>
               {options.map((option) => (
-                <div key={option} style={{ display: 'flex', flexDirection: 'row', cursor:'pointer' }} onClick={() => {handleChangeOption(option)}}>
-                  <input style={{ cursor:'pointer' }} className='Input-Checkbox' type='checkbox' checked={selectedValue === option} />
-                  <text>{option}</text>
+                <div key={option} style={{ display: 'flex', flexDirection: 'row', cursor:'pointer', alignItems:'center' }} onClick={() => {handleChangeOption(option)}}>
+                  <input style={{ cursor:'pointer' }} className="checkbox" type='checkbox' checked={selectedValue === option} />
+                  <p>{option}</p>
                 </div>
               ))}
             </div>
