@@ -83,35 +83,41 @@ function PaymentInformation({ data, onSubmit }) {
     }
 
   return (
-    <div className="Payment-Information-Container">
-        <h2>Payment Information</h2>
-        <div style={{display:'flex', flexDirection:'column'}}>
-            <text>Card number</text>
-            <input placeholder='0000 0000 0000 0000' name='cardNumber' type='text' value={cardNumber} onChange={handleInput}/>
-        </div>
-        <div style={{display:'flex', alignContent:'center', justifyContent:'space-between'}}>
-            <div>
-                <text>Expiration date</text>
-                <div style={{ display:'flex', flexDirection:'row', justifyContent:'space-between', height:'33px', flexGrow:'1' }}>
-                    <select name='month' onChange={handleInput}>
-                        <option value='' disabled selected>mm</option>
-                        {constructMonthDropdown()}
-                    </select>
-                    <select name='year' onChange={handleInput}>
-                        <option value='' disabled selected>yyyy</option>
-                        {constructYearDropdown()}
-                    </select>
+    <div>
+        <div className="Payment-Information-Container">
+            <h2>Payment Information</h2>
+            <div style={{display:'flex', flexDirection:'column'}}>
+                <text>Card number</text>
+                <input placeholder='0000 0000 0000 0000' name='cardNumber' type='text' value={cardNumber} onChange={handleInput}/>
+            </div>
+            <div style={{display:'flex', alignContent:'center', justifyContent:'space-between'}}>
+                <div>
+                    <text>Expiration date</text>
+                    <div style={{ display:'flex', flexDirection:'row', justifyContent:'space-between', height:'33px', flexGrow:'1' }}>
+                        <select name='month' onChange={handleInput}>
+                            <option value='' disabled selected>mm</option>
+                            {constructMonthDropdown()}
+                        </select>
+                        <select name='year' onChange={handleInput}>
+                            <option value='' disabled selected>yyyy</option>
+                            {constructYearDropdown()}
+                        </select>
+                    </div>
+                </div>
+                <div style={{width:'187px'}}>
+                    <text>Security code</text>
+                    <input placeholder='0000' name='securityCode' type='text' value={securityCode} onChange={handleInput}/>
                 </div>
             </div>
-            <div style={{width:'187px'}}>
-                <text>Security code</text>
-                <input placeholder='0000' name='securityCode' type='text' value={securityCode} onChange={handleInput}/>
-            </div>
+            <div>Total: {data?.price ?? 'Price not found'} {data?.currency.currency}</div>
+            <button disabled={!validInput} onClick={submitForm}>Continue</button>
         </div>
-        <div>Total: {data?.price ?? 'Price not found'} {data?.currency.currency}</div>
-        <button disabled={!validInput} onClick={submitForm}>Continue</button>
+        <div style={{display:'flex', flexDirection:'row', gap:'8px'}}>
+            <img style={{height:'64px', width:'64px'}} src={require('../../public/assets/images/visa-icon.png')}/>
+            <img style={{height:'64px', width:'64px'}} src={require('../../public/assets/images/mastercard-icon.png')}/>
+        </div>
     </div>
-  );
+  );    
 }
 
 export default PaymentInformation;

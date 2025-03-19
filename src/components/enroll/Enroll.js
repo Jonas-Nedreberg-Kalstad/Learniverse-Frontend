@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 import OrderOverview from './OrderOverview';
 import PaymentInformation from './PaymentInformation';
 import EnrollSuccess from './EnrollSuccess';
-import { Fetch } from '../../service/apiService';
+import courseService from '../../service/courseService';
+import enrollService from '../../service/enrollService';
 
 function Payment() {
 
@@ -19,7 +20,7 @@ function Payment() {
   };
 
   useEffect(() => {
-    Fetch("GET", `api/anonymous/courses/${id}`, null, handleResponse);
+    courseService.getCourse(id, handleResponse)
   }, [id])
 
   const handlePaymentResponse = (data) => {
@@ -37,7 +38,7 @@ function Payment() {
 
   useEffect(() => {
     if(paymentData != null) {
-      Fetch("POST", `api/user/orders/create`, paymentData, handlePaymentResponse);
+      enrollService.enroll(paymentData, handlePaymentResponse);
     }
   }, [paymentData])
 
@@ -48,7 +49,7 @@ function Payment() {
           : 
           (
             <>
-            <OrderOverview data={courseData}/>
+            <OrderOverview course={courseData}/>
             <PaymentInformation data={courseData} onSubmit={setPaymentDate}/>
             </>
           )

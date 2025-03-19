@@ -1,21 +1,30 @@
 import '../../App.css';
+import { useEffect, useState } from 'react';
 import Rating from '../Rating';
 import Duration from './Duration';
 
-function OrderOverview({ data }) {
+function OrderOverview({ course }) {
+
+  const [image, setImage] = useState(require('../../public/assets/images/placeholder-image.png'));
+
+  useEffect(() => {
+    if(course) {
+      setImage(course.courseImageUrl);
+    }
+  }, [course]);
 
   return (
     <div className="Order-Overview-Main-Container">
         <h2>Enroll into course</h2>
-        <div style={{display:'flex', flexDirection:'row', gap:'16px'}}>
-            <img style={{height:'128px'}} src='https://foundr.com/wp-content/uploads/2023/04/How-to-create-an-online-course.jpg.webp'/>
-            <div style={{height:'128px', display:'flex', flexDirection:'column', justifyContent:'space-between'}}>
-                <text className='Text-Light'>{data?.courseName ?? "Course title unavailable"}</text>
-                <Rating rating={data?.averageRating ?? 0} amount={data?.numberOfReviews ?? 0} light={true} />
-                <text className='Text-Light'>{data?.creator ?? "Creator not found"}</text>
+        <div style={{display:'flex', flexDirection:'row', gap:'16px', flexWrap:'wrap', justifyContent:'center'}}>
+            <img style={{height:'128px'}} src={image}/>
+            <div style={{height:'128px', maxWidth:'320px', display:'flex', flexDirection:'column', justifyContent:'space-between'}}>
+                <text className='Text-Light'>{course?.courseName ?? "Course title unavailable"}</text>
+                <Rating rating={course?.averageRating ?? 0} amount={course?.numberOfReviews ?? 0} light={true} />
+                <text className='Text-Light'>Created by: {course?.provider?.providerName ?? "Creator not found"}</text>
             </div>
         </div>
-        <Duration courseStartDate={data?.startDate} courseEndDate={data?.endDate} />
+        <Duration courseStartDate={course?.startDate} courseEndDate={course?.endDate} />
     </div>
   );
 }

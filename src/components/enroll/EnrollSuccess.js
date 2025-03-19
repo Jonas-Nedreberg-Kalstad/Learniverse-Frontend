@@ -17,9 +17,9 @@ function EnrollSuccess({ data }) {
                 </div>
             </div>
         </div>
-        <div style={{display:'flex', flexDirection:'column', justifyContent:'center', width:'375px'}}>
+        <div style={{display:'flex', flexDirection:'column', justifyContent:'center', width:'50vw', minWidth:'320px'}}>
             <p style={{fontSize:'x-large', textAlign:'center'}}>You can view your enrollment in your profile. Visit the provider's homepage for more details about the course, thank you for using Learniverse Connect!</p>
-            <button onClick={() => window.location.href = 'https://example.com'}>Go to external page</button>
+            <button onClick={() => window.location.href = data?.provider?.providerUrl}>Go to external page</button>
         </div>
     </div>
   );
