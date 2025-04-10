@@ -2,9 +2,11 @@ import '../../App.css';
 import React, { useState } from "react";
 import axios from "axios";
 import { URL } from '../../utils/url';
+import userService from '../../service/userService';
 import Cookies from 'universal-cookie';
 import { setRolesFromJWT } from '../../utils/role';
 import { Fetch } from '../../service/apiService';
+import { notify } from '../Toaster';
 
 const cookies = new Cookies();
 
@@ -34,7 +36,13 @@ function Login() {
       setRolesFromJWT(response.data.response);
       
       window.location.href = '/';
+    } else {
+      notify("ERROR", response.data.message);
     }
+  }
+
+  const handleError = (response) => {
+    notify("ERROR", "Wrong email or password!");
   }
 
   const handleSubmit = (event) => {
@@ -45,7 +53,7 @@ function Login() {
       password:inputPasswordValue 
     };
 
-    Fetch("POST", "api/anonymous/authenticate", data, handleResponse);
+    userService.authenticate(data, handleResponse, handleError);
   };
 
   return (
@@ -54,12 +62,12 @@ function Login() {
 
         <div style={{display:'flex', flexDirection:'column', width:'75%'}}>
             <text>Email</text>
-            <input type='email' name='email' value={inputEmailValue} onChange={handleInputChange} placeholder='Email' />
+            <input type='email' name='email' value={inputEmailValue} onChange={handleInputChange} placeholder='Email' required />
         </div>
 
         <div style={{display:'flex', flexDirection:'column', width:'75%'}}>
             <text>Password</text>
-            <input type='password' name='password' value={inputPasswordValue} onChange={handleInputChange} placeholder='password' />
+            <input type='password' name='password' value={inputPasswordValue} onChange={handleInputChange} placeholder='password' required />
         </div>
 
         <button style={{width:'50%'}} type="submit">Login</button>

@@ -16,7 +16,7 @@ const headers = {
 const api = axios.create({
   baseURL: URL.BACKEND,
   timeout: 10000,
-  headers: headers
+  headers: headers,
 });
 
 // Response interceptor for handling common errors
@@ -39,37 +39,44 @@ api.interceptors.response.use(
 );
 
 // Generic function to handle requests
-export const Fetch = async (method, endpoint, data = null, handleResponse) => {
+export const Fetch = async (method, endpoint, data = null, handleResponse, handleError = null, type = 'json') => {
+    let response;
     try {
-      let response;
       switch (method) {
-        case 'GET':
-          response = await api.get(`/${endpoint}`);
-          break;
-        case 'POST':
-          response = await api.post(`/${endpoint}`, data);
-          break;
-        case 'PUT':
-          response = await api.put(`/${endpoint}`, data);
-          break;
-        case 'PATCH':
-          response = await api.patch(`/${endpoint}`, data);
-          break;
-        case 'DELETE':
-          response = await api.delete(`/${endpoint}`);
-          break;
-        default:
-          throw new Error('Unsupported method');
+          case 'GET':
+              response = await api.get(`/${endpoint}`, { responseType:type });
+              break;
+          case 'POST':
+              response = await api.post(`/${endpoint}`, data, { responseType:type });
+              break;
+          case 'PUT':
+              response = await api.put(`/${endpoint}`, data, { responseType:type });
+              break;
+          case 'PATCH':
+              response = await api.patch(`/${endpoint}`, data, { responseType:type });
+              break;
+          case 'DELETE':
+              response = await api.delete(`/${endpoint}`, { responseType:type });
+              break;
+          default:
+              throw new Error('Unsupported method');
       }
-  
+
       // Call the response handler if provided
       if (typeof handleResponse === 'function') {
-        handleResponse(response);
+          handleResponse(response);
       }
-  
+
       return response.data;
-    } catch (error) {
-      console.error(`${method} request error:`, error);
-      throw error;
+  } catch (error) {
+
+    console.error(`${method} request error:`, error);
+
+    // Call the response handler if provided
+    if (typeof handleError === 'function') {
+        handleError(error);
     }
+
+      throw error;
+  }
 };
