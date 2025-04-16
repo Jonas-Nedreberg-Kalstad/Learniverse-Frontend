@@ -34,7 +34,7 @@ function Rating({ rating, amount, light }) {
   return (
     <div className="rating-container">
       {icons}
-      {light ? <span className='Text-Light'>({amount})</span> : <span>({amount})</span>}
+      {light ? <span className='Text-Light'>{amount > 0 ? `(${amount})` : ''}</span> : <span>{amount > 0 ? `(${amount})` : ''}</span>}
     </div>
   );
 }
