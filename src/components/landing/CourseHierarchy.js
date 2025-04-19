@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Fetch } from '../../service/apiService';
 import { URL } from '../../utils/url';
 import { useEffect, useState } from 'react';
+import courseService from '../../service/courseService';
 
 function CourseHierarchy() {
 
@@ -17,7 +18,7 @@ function CourseHierarchy() {
   } 
 
   useEffect(() => {
-    Fetch("GET", "api/anonymous/mostPopularCourses?page:0&size:5", null, handleResponse);
+    courseService.mostPopularCourses(handleResponse);
   }, [])
 
   useEffect(() => {
@@ -29,9 +30,9 @@ function CourseHierarchy() {
       listOfCourses?.map((course, index) => (
         <CourseCard
           id={course.id} // Ideally, use course.id if available
-          imgLink="https://foundr.com/wp-content/uploads/2023/04/How-to-create-an-online-course.jpg.webp"
+          imgLink={course.courseImageUrl}
           title={course.courseName}
-          creator="WJC"
+          creator={course.provider.providerName}
           rating={course.averageRating}
           amount={course.numberOfReviews}
           price={course.price}
@@ -46,7 +47,7 @@ function CourseHierarchy() {
       <div className='Course-Container'>
         {hasRecievedResponse && createCourseCards()}
       </div>
-      <a href='' onClick={() => navigate("/search")}>View all popular courses</a>
+      <a href='' onClick={() => navigate("/search")}>Explore all our courses</a>
     </div>
   );
 }

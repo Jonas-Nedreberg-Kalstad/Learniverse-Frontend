@@ -8,24 +8,24 @@ function TrendingTopics() {
 
   return (
     <div className="Trending-Topics-Container">
-        <h2>Trending topics</h2>
-        <div style={{display:'flex', flexDirection:'row', gap:'16px'}}>
+        <h2>Explore topics</h2>
+        <div style={{display:'flex', flexDirection:'row', gap:'16px', flexWrap:'wrap', justifyContent:'center'}}>
             <div>
-                <TopicCard topic="Python"/>
-                <TopicCard topic="Java"/>
-                <TopicCard topic="Azure"/>
-                <TopicCard topic="Painting"/>
-                <TopicCard topic="Video editing"/>
+                <TopicCard topic={{id:20, topic:"python"}}/>
+                <TopicCard topic={{id:1, topic:"java"}}/>
+                <TopicCard topic={{id:11, topic:"Azure"}}/>
+                <TopicCard topic={{id:2, topic:"real-time programming"}}/>
+                <TopicCard topic={{id:5, topic:"SQL"}}/>
             </div>
             <div>
-                <TopicCard topic="Music composition"/>
-                <TopicCard topic="Business analytics"/>
-                <TopicCard topic="Leadership"/>
-                <TopicCard topic="Project planning"/>
-                <TopicCard topic="Game development"/>
+                <TopicCard topic={{id:8, topic:"web"}}/>
+                <TopicCard topic={{id:9, topic:".net"}}/>
+                <TopicCard topic={{id:10, topic:"C#"}}/>
+                <TopicCard topic={{id:12, topic:"cloud services"}}/>
+                <TopicCard topic={{id:22, topic:"data science"}}/>
             </div>
         </div>
-        <a href='' onClick={() => navigate("/search")}>View all popular topics</a>
+        <a href='' onClick={() => navigate("/search")}>Explore all our topics</a>
     </div>
   );
 }
