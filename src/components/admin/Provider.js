@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { notify } from '../Toaster';
+import { notify } from '../common/toaster/Toaster';
 import providerService from '../../service/providerService';
-import { CloseModal, OpenModal } from '../Modal';
+import { CloseModal, OpenModal } from '../common/modal/Modal';
 import userService from '../../service/userService';
-import Table from '../Table';
+import Table from '../common/table/Table';
 
 function Provider() {
 

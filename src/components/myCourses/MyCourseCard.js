@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import '../../App.css';
 import { useNavigate } from "react-router-dom";
-import { OpenModal } from '../Modal';
+import { OpenModal } from '../common/modal/Modal';
 import DeleteCourse from './DeleteCourse';
 import ReOpenCourse from './ReOpenCourse';
 import courseService from '../../service/courseService';
-import { notify } from '../Toaster';
+import { notify } from '../common/toaster/Toaster';
 
 function MyCourseCard({ course, onOpen, onDeactivate }) {
 
@@ -73,7 +73,7 @@ function MyCourseCard({ course, onOpen, onDeactivate }) {
   }
 
   return (
-    <div className="Search-Result-Card-Container">
+    <div className="My-Courses-Card-Container">
 
       <img style={{borderRadius:'5px 0px 0px 5px'}} src={course?.courseImageUrl} alt='CourseImage'/>
         

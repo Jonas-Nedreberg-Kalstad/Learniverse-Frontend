@@ -1,4 +1,5 @@
 import '../../App.css';
+import './Course.css';
 import CourseMain from './CourseMain.js';
 import CourseDescription from './CourseDescription.js';
 import { useParams } from 'react-router-dom';

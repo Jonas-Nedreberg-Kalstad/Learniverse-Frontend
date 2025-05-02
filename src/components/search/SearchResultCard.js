@@ -1,6 +1,6 @@
 import '../../App.css';
 import { useNavigate } from "react-router-dom";
-import Rating from '../Rating';
+import Rating from '../common/rating/Rating';
 import { useEffect, useState } from 'react';
 
 function SearchResultCard({ course }) {

@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import Breadcrumps from './Breadcrumbs';
-import Rating from '../Rating';
-import Tooltip from '../Tooltip';
+import Rating from '../common/rating/Rating';
+import Tooltip from '../common/tooltip/Tooltip';
 import { useState, useEffect } from 'react';
 import courseService from '../../service/courseService';
 

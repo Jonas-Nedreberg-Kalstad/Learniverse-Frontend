@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { notify } from "../Toaster";
+import { notify } from "../common/toaster/Toaster";
 import userService from "../../service/userService";
 import providerService from "../../service/providerService";
-import { CloseModal, OpenModal } from "../Modal";
+import { CloseModal, OpenModal } from "../common/modal/Modal";
 
 function User() {
 

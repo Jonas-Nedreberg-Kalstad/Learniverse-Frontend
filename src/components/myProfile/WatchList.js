@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Cookies from "universal-cookie";
-import Rating from "../Rating";
+import Rating from "../common/rating/Rating";
 import { useNavigate } from "react-router-dom";
 
 function WatchList() {
@@ -16,7 +16,7 @@ function WatchList() {
 
     const renderCourses = () => {
         return savedCourses.map((course, index) => (
-            <div className="Search-Result-Card-Container" style={{ cursor:'pointer' }} onClick={() => navigate(`/course/${course.id}`)}>
+            <div className="My-Profile-Card-Container" style={{ cursor:'pointer' }} onClick={() => navigate(`/course/${course.id}`)}>
               <img style={{aspectRatio:'3/2', height:'128px', maxWidth:'100%', borderRadius:'5px 0px 0px 5px'}} src={course.courseImageUrl} alt='CourseImage'/>
 
               <div className='Course-Card-Info'>

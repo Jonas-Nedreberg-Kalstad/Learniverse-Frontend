@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Table.css';
 
 /**
  * Renders a dynamic table based on the provided schema and data.

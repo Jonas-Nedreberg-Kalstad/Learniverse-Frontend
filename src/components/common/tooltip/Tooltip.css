@@ -1,0 +1,22 @@
+/* TOOLTIP */
+
+.Tooltip-Container {
+  position: relative;
+}
+
+.Tooltip-Container > :last-child {
+  min-width: 128px;
+  visibility: hidden;
+  padding: 8px;
+  background: #fdfdff;
+  position: absolute;
+  border-radius: 5px;
+  font-size: small;
+  z-index: 1000;
+}
+
+.Tooltip-Container:hover > :last-child {
+  visibility: visible;
+}
+
+/* ------------ */

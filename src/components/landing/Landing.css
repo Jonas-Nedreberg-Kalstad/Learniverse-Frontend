@@ -1,0 +1,166 @@
+/* ---------- Landing Component ---------- */
+
+.Landing-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+/* ------------------------------------ */
+
+/* ---------- Hero Component ---------- */
+
+.Hero-Container {
+  width: 100vw;
+  max-width: 1024px;
+  height: 50vh;
+  max-height: 576px;
+  background-image: url("/src/public/assets/images/LecturingImage.jpg");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 1px 5px rgba(0, 2, 90, 0.25);
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.Hero-Text-Container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 16px;
+  gap: 8px;
+  width: fit-content;
+  border-radius: 5px;
+  margin: 32px;
+}
+
+.Hero-Title {
+  color: black;
+  font-size: clamp(13px, 2.5vw, 20px);;
+  font-weight: 500;
+  margin: 0px;
+}
+
+.Hero-Undertitle {
+  color: black;
+  font-size: clamp(11px, 2.5vw, 16px);
+  margin: 0px;
+}
+
+/* ------------------------------------ */
+
+/* -------- Hierarchy Component -------- */
+
+.Course-Hierarchy-Container {
+  width: 100vw;
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.Course-Container {
+  height: 288px;
+  width: 100%;
+  padding-left: 32px;
+  padding-right: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow-x: auto;
+  gap: 8px;
+}
+
+.Course-Card-Container {
+  height: 256px;
+  width: 1px;
+  min-width: 196px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 0px;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  box-shadow: 0px 1px 5px rgba(0, 2, 90, 0.25);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.Course-Card-Info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.Course-Card-Container:hover {
+  cursor: pointer;
+  box-shadow: 0px 1px 10px rgba(0, 2, 90, 0.25);
+  transform: scale(1.02);
+}
+
+@media screen and (max-width: 1024px) {
+
+  .Course-Container {
+    padding-left: 16px;
+  }
+  
+}
+
+/* ------------------------------------- */
+
+/* -------- Trending Topics Component -------- */
+
+.Trending-Topics-Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  max-width: 1024px;
+}
+
+.Topic-Card-Container {
+  width: 256px;
+  height: 48px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 1px 5px rgba(0, 2, 90, 0.25);
+  transition: box-shadow 0.25s,  transform 0.1s;
+}
+
+.Topic-Card-Container:hover {
+  cursor: pointer;
+  box-shadow: 0px 1px 10px rgba(0, 2, 90, 0.25);
+  transform: scale(1.02);
+}
+
+/* ------------------------------------- */
+
+/* -------- Want To Teach Component -------- */
+
+.WTT-Container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.WTT-Paragraph {
+  text-align: center;
+  width: 90vw;
+  max-width: 1024px;
+}
+
+/* ------------------------------------- */

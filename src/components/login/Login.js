@@ -1,4 +1,5 @@
 import '../../App.css';
+import './Login.css';
 import React, { useState } from "react";
 import axios from "axios";
 import { URL } from '../../utils/url';
@@ -6,7 +7,7 @@ import userService from '../../service/userService';
 import Cookies from 'universal-cookie';
 import { setRolesFromJWT } from '../../utils/role';
 import { Fetch } from '../../service/apiService';
-import { notify } from '../Toaster';
+import { notify } from '../common/toaster/Toaster';
 
 const cookies = new Cookies();
 

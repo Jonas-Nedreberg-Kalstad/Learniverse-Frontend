@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import '../../App.css';
+import './Admin.css';
 import { useNavigate, Routes, Route } from 'react-router-dom';
 import Courses from "./Courses";
 import Providers from "./Providers";

@@ -1,8 +1,8 @@
 import { set } from "lodash";
 import React, { useEffect, useState } from "react";
 import userService from "../../service/userService";
-import { CloseModal, OpenModal } from "../Modal";
-import { notify } from "../Toaster";
+import { CloseModal, OpenModal } from "../common/modal/Modal";
+import { notify } from "../common/toaster/Toaster";
 
 
 function General() {

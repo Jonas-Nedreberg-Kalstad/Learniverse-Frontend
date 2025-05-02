@@ -1,5 +1,5 @@
 import '../../App.css';
-import { OpenModal } from '../Modal';
+import { OpenModal } from '../common/modal/Modal';
 
 function WantToTeach() {
   return (

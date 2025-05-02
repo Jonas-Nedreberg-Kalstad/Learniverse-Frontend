@@ -1,4 +1,5 @@
 import '../../App.css';
+import './Landing.css';
 import Hero from './Hero.js';
 import CourseHierarchy from './CourseHierarchy.js';
 import TrendingTopics from './TrendingTopics.js';

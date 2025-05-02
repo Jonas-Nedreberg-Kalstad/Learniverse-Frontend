@@ -1,0 +1,11 @@
+.Login-Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 512px;
+  width: 100vw;
+  max-width: 512px;
+  padding: 128px;
+  gap: 16px;
+}

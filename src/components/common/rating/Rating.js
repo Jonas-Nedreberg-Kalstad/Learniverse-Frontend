@@ -1,9 +1,10 @@
 import React from 'react';
 import { useMemo } from 'react';
-import '../App.css';
-import fullStarIcon from '../public/assets/images/full-star-icon.png';
-import halfStarIcon from '../public/assets/images/half-star-icon.png';
-import emptyStarIcon from '../public/assets/images/empty-star-icon.png';
+import '../../../App.css';
+import './Rating.css';
+import fullStarIcon from '../../../public/assets/images/full-star-icon.png';
+import halfStarIcon from '../../../public/assets/images/half-star-icon.png';
+import emptyStarIcon from '../../../public/assets/images/empty-star-icon.png';
 
 function Rating({ rating, amount, light }) {
   

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import userService from '../../service/userService';
 import { forEach } from 'lodash';
-import { CloseModal, OpenModal } from '../Modal';
-import { notify } from '../Toaster';
-import Table from '../Table';
+import { CloseModal, OpenModal } from '../common/modal/Modal';
+import { notify } from '../common/toaster/Toaster';
+import Table from '../common/table/Table';
 import User from './User';
 import { useNavigate } from 'react-router-dom';
 

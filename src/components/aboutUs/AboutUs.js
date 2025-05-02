@@ -1,9 +1,10 @@
 import React from 'react';
 import '../../App.css';
+import './AboutUs.css';
 
 function AboutUs() {
   return (
-    <div className="Tos-Container">
+    <div className="About-Us-Container">
         <br />
         <br />
         <br />

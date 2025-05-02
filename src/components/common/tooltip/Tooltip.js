@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
-import '../App.css';
+import '../../../App.css';
+import './Tooltip.css';
 
 function Tooltip({ tooltip }) {
   const tooltipRef = useRef(null);
@@ -30,7 +31,7 @@ function Tooltip({ tooltip }) {
 
   return (
     <div className='Tooltip-Container' ref={containerRef}>
-      <img className='icon' src={require('../public/assets/images/tooltip-icon.png')} alt='View tooltip'/>
+      <img className='icon' src={require('../../../public/assets/images/tooltip-icon.png')} alt='View tooltip'/>
       <div
         ref={tooltipRef}
         style={{

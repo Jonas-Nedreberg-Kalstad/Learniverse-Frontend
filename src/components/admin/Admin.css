@@ -1,0 +1,33 @@
+/* USERS */
+
+.User-Edit-Container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 320px;
+}
+
+.User-Edit-Input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Users-Container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  max-width: 720px;
+}
+
+/* -------------- */
+
+/* PROVIDER */
+
+.Provider-Add-User-Container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ------------------ */

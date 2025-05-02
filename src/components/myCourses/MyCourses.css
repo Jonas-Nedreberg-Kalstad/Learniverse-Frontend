@@ -1,0 +1,162 @@
+/* MY COURSES */
+
+.My-Course-Container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  max-width: 1024px;
+  width: 100vw;
+  padding-top: 128px;
+}
+
+.My-Course-Card-Container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .My-Course-Card-Container {
+    align-items: center;
+  }
+  
+}
+
+/* --------------- */
+
+/* MY COURSES FILTER */
+
+.My-Course-Filter-Container {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+}
+
+/* -------------------- */
+
+/* COURSE CARDS */
+
+.My-Courses-Card-Container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 1px 5px rgba(0, 2, 90, 0.25);
+  max-height: 128px;
+  margin-left: 16px;
+  margin-right: 16px;
+  width: auto;
+  max-width: 640px;
+}
+
+.My-Courses-Card-Container > :first-child {
+  max-height: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .My-Courses-Card-Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffffff;
+    max-width: 320px;
+    min-width: 320px;
+    max-height: 1024px;
+  }
+
+  .My-Courses-Card-Container > :first-child {
+    max-width: 100%;
+  }
+
+}
+
+/* ------------------------ */
+
+/* RE OPEN COURSE */
+
+.Re-Open-Course-Container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* -------------- */
+
+/* MANAGE COURSE */
+
+.Create-Course-Container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 128px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.Create-Course-Form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Create-Course-Image-Field-Container {
+  display: flex;
+  flex-direction: row;
+}
+
+.Create-Course-Fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.Create-Course-Field {
+  display: flex;
+  flex-direction: row;
+  min-width: 320px;
+  justify-content: space-between;
+}
+
+.Create-Course-Description {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  gap: 16px;
+  padding-left: 32px;
+  padding-right: 32px;;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .Create-Course-Image-Field-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .Create-Course-Field {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    justify-content: space-between;
+  }
+
+  .Create-Course-Description {
+    justify-content: center;
+    align-items: center;
+  }
+  
+}
+
+/* ------------- */

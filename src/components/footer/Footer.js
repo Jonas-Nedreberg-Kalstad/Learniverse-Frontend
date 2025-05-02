@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import '../../App.css';
-import { OpenModal } from '../Modal';
+import './Footer.css';
+import { OpenModal } from '../common/modal/Modal';
 
 function Footer() {
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from "react";
+import './Toaster.css';
 import ReactDOM from 'react-dom';
 
 let triggerToastExternally; // Function to trigger toast externally

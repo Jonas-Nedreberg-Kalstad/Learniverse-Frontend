@@ -1,0 +1,50 @@
+/* ----- Table ----- */
+
+.Table-Wrapper {
+  overflow-x: auto;
+  width: 100%;
+  max-width: 720px;
+}
+
+table {
+  width: 100%;
+  min-width: 320px;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+th {
+  background-color: #004588;
+  color: #ffffff;
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+td {
+  padding: 14px 20px;
+  font-size: 15px;
+  color: #333333;
+}
+
+tr:nth-child(even) {
+  background-color: #f5f8ff;
+}
+
+tr:hover {
+  background-color: #e0ecff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+table, th, td {
+  border: 1px solid #e0e0e0;
+}
+
+/* ----------------- */

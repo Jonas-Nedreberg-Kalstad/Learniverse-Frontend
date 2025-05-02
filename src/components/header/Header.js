@@ -1,4 +1,5 @@
 import '../../App.css';
+import './Header.css';
 import SearchBar from './SearchBar';
 import { useNavigate } from "react-router-dom";
 import Cookies from 'universal-cookie';

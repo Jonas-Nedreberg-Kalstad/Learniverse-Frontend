@@ -1,0 +1,249 @@
+/* HEADER */
+
+.Header-Container {
+  width: 80%;
+  height: 64px;
+  margin-right: 5%;
+  margin-left: 5%;
+  padding-right: 1%;
+  padding-left: 1%;
+  border-radius: 0px 0px 5px 5px;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 5px rgba(0, 2, 90, 0.25);
+  position: fixed;
+  display: flex;
+  top: 0px;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  gap: 16px;
+}
+
+/* ---------- */
+
+/* LOGO CONTAINER */
+
+.Left-Container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-grow: 1;
+  gap: 16px;
+}
+
+.Header-Logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* ---------- */
+
+/* SEARCH BAR */
+
+.Search-Bar-Container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.Search-Bar-Input-Container {
+  height: 32px;
+  padding-left: 8px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-size: medium;
+  border-style: solid;
+  background: #ffffff;
+  border: solid 1px #b2c0ca;
+}
+
+.Search-Bar-Result-Container {
+  min-width: 320px;
+  max-height: 90vh;
+  position: absolute;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: solid 1px #b2c0ca;
+  border-radius: 5px;
+  padding: 16px;
+  z-index: 1000;
+  overflow-y: scroll;
+}
+
+@media (max-width: 607px) {
+  .Search-Bar-Result-Container {
+    max-width: 90vw;
+    min-width: 90vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    left: 0;
+  }
+}
+
+.Search-Bar-Result-Container > * {
+  margin: 0;
+  padding: 16px;
+  border-bottom: 1px solid #b2c0ca;
+}
+
+.Search-Bar-Result-Container p:last-child {
+  border-bottom: none;
+}
+
+/* ---------- */
+
+/* AUTHENTICATION */
+
+.Authentication-Container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.Key-Icon {
+  width: 32px;
+  height: 32px;
+  display: none;
+}
+
+.Login-Options-Container {
+  width: 32px;
+  height: 32px;
+  visibility: hidden;
+}
+
+/* ---------- */
+
+/* HAMBURGER MENU */
+
+.Hamburger-Icon {
+  height: 32px;
+  width: 32px;
+  display: none;
+}
+
+.Hamburger-Menu-Container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  transform: translateX(-100%);
+  top: 0;
+  padding: 16px;
+  gap: 16px;
+  width: 75vw;
+  max-width: 256px;
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: 0px 1px 5px rgba(0, 2, 90, 0.25);
+}
+
+.Hamburger-Menu-Container > :first-child {
+  visibility: hidden;
+  height: 0px;
+}
+
+.Hamburger-Menu-Container.true {
+  animation: show-menu 0.25s forwards;
+}
+
+.Hamburger-Menu-Container.false {
+  animation: hide-menu 0.25s forwards;
+}
+
+@keyframes show-menu {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes hide-menu {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* ---------- */
+
+/* USER OPTIONS */
+
+.User-Option-Container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  background-color: #ffffff;
+  padding: 8px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 5px rgba(0, 2, 90, 0.25);
+}
+
+.User-Icon {
+  cursor: pointer;
+  aspect-ratio: 1/1;
+}
+
+.User-Option-Container p {
+  margin: 0;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* Add a divider between items, except after the last one */
+.User-Option-Container p:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+
+/* ---------- */
+
+@media screen and (max-width: 1024px) {
+
+  .Header-Container {
+    width: 90vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .Course-Container {
+    padding-left: 16px;
+  }
+
+  .Header-Logo {
+    display: none;
+  }
+
+  .Hamburger-Icon {
+    display: flex;
+  }
+
+  .Key-Icon {
+    display: flex;
+  }
+
+  .Authentication-Container {
+    display: none;
+  }
+
+  .Login-Options-Container {
+    visibility: visible;
+  }
+
+  .Hamburger-Menu-Container > :first-child {
+    visibility: visible;
+    height: 64px;
+  }
+  
+}

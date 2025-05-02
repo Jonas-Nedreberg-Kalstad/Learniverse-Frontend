@@ -1,11 +1,11 @@
 import '../../App.css';
 import { useNavigate } from "react-router-dom";
-import Rating from '../Rating';
+import Rating from '../common/rating/Rating';
 import Duration from '../enroll/Duration';
 import { useState, useEffect } from 'react';
-import { CloseModal, OpenModal } from '../Modal';
+import { CloseModal, OpenModal } from '../common/modal/Modal';
 import courseService from '../../service/courseService';
-import { notify } from '../Toaster';
+import { notify } from '../common/toaster/Toaster';
 
 function EnrolledCoursesCard({ course }) {
 
@@ -15,12 +15,7 @@ function EnrolledCoursesCard({ course }) {
 
   useEffect(() => {
     if(course) {
-      const img = new Image();
-
-      img.onload = () => {
-        // Image is valid
-        setImage(course.courseImageUrl);
-      };
+      setImage(course.courseImageUrl);
     }
   }, [course]);
 
@@ -42,7 +37,7 @@ function EnrolledCoursesCard({ course }) {
   }
 
   return (
-    <div className="Search-Result-Card-Container">
+    <div className="My-Profile-Card-Container">
       <img style={{borderRadius:'5px 0px 0px 5px'}} src={image} alt='CourseImage'/>
 
       <div style={{display:'flex', flexDirection:'column', justifyContent:'space-between', padding:'8px', maxWidth:'320px', flexGrow:'1'}}>

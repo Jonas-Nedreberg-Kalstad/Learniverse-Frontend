@@ -1,10 +1,11 @@
 import '../../App.css';
+import './SignUp.css';
 import React, { useState, useEffect } from 'react';
 import Tos from '../tos/Tos.js';
 import { Fetch } from '../../service/apiService.js';
 import { setRolesFromJWT } from '../../utils/role.js';
 import Cookies from 'universal-cookie';
-import { OpenModal } from '../Modal.js';
+import { OpenModal } from '../common/modal/Modal.js';
 
 function SignUp() {
 
@@ -129,7 +130,7 @@ function SignUp() {
   }
 
   return (
-    <form className="Login-Container" onSubmit={handleSubmit}>
+    <form className="Sign-Up-Container" onSubmit={handleSubmit}>
         <h2>Sign up</h2>
         <div><text>Already have an account? </text><a href='/login'>Login</a></div>
 

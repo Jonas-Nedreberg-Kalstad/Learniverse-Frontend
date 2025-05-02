@@ -1,0 +1,31 @@
+/* MODAL */
+
+.Modal-Overlay {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  background-color: #021e3860;
+}
+
+.Modal-Container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  transform: translate(0, 0);
+  padding: 32px;
+  gap: 16px;
+  max-width: 50vw;
+  max-height: 80vh;
+  min-width: 320px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 1px 5px rgba(0, 2, 90, 0.25);
+  overflow-x: hidden;
+}
+
+/* ----- */

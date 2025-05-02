@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import providerService from '../../service/providerService';
-import { notify } from '../Toaster';
-import { OpenModal, CloseModal } from '../Modal';
+import { notify } from '../common/toaster/Toaster';
+import { OpenModal, CloseModal } from '../common/modal/Modal';
 import userService from '../../service/userService';
-import Table from '../Table';
+import Table from '../common/table/Table';
 import { useNavigate } from 'react-router-dom';
 
 function Providers() {

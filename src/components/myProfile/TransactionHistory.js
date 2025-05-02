@@ -4,7 +4,7 @@ import saveAs from "file-saver";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { URL } from "../../utils/url";
-import Table from "../Table";
+import Table from "../common/table/Table";
 
 function TransactionHistory() {
 
@@ -57,7 +57,7 @@ function TransactionHistory() {
     }
 
 return (
-    <div style={{display:'flex', flexDirection:'column', gap:'16px'}}>
+    <div style={{display:'flex', flexDirection:'column', gap:'16px', width:'100vw', maxWidth:'720px'}}>
         <h2>Transaction History</h2>
         <Table tableSchema={{
         "ID": "id", 

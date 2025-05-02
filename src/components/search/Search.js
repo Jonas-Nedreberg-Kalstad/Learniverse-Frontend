@@ -1,4 +1,5 @@
 import '../../App.css';
+import './Search.css';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import FilterDrowdown from './FilterDropdown';

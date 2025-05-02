@@ -1,6 +1,6 @@
 import '../../App.css';
 import { useEffect, useState } from 'react';
-import Rating from '../Rating';
+import Rating from '../common/rating/Rating';
 import Duration from './Duration';
 
 function OrderOverview({ course }) {

@@ -3,9 +3,9 @@ import { redirect, useNavigate, useParams, useLocation } from "react-router-dom"
 import courseService from "../../service/courseService"; // Assuming courseService is in services folder
 import CourseDescription from "../course/CourseDescription";
 import SearchTopic from "../search/SearchTopic"; // Assuming TopicSearch is in search folder
-import InfoBanner from "../Toaster";
+import InfoBanner from "../common/toaster/Toaster";
 import { wrap } from "lodash";
-import { notify } from "../Toaster"; // Assuming Toaster is in components folder
+import { notify } from "../common/toaster/Toaster"; // Assuming Toaster is in components folder
 
 const placeholderImage = require("../../public/assets/images/placeholder-image.png");
 

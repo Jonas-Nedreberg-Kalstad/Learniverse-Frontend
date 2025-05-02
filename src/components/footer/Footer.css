@@ -1,0 +1,63 @@
+.Footer-Container {
+  display: flex;
+  flex-direction: column;
+  background-color: #1d2930;
+  justify-content: center;
+  width: 90vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+/* DISCLAMER */
+
+.Disclamer-Container {
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.Disclamer-Text {
+  background: #FF4B4B;
+  font-family: "Roboto" sans-serif;
+  font-weight: 500;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+/* ---------- */
+
+/* Footer Options */
+
+.Footer-Options-Container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-top: 1px solid #021e38;
+  gap: 32px;
+  background-color: #1d2930;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------- */
+
+/* RIGHTS */
+
+.Rights-Container {
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  border-top: 1px solid #021e38;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+/* ---------- */

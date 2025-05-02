@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { notify } from '../Toaster';
+import { notify } from '../common/toaster/Toaster';
 import courseService from '../../service/courseService';
-import { CloseModal } from '../Modal';
+import { CloseModal } from '../common/modal/Modal';
 
 function OpenCourse({course, onSubmit}) {
 

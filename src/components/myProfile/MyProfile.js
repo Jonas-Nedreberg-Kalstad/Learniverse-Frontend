@@ -1,3 +1,4 @@
+import './MyProfile.css';
 import React, { useState } from "react";
 import General from "./General";
 import EnrolledCourses from "./EnrolledCourses";

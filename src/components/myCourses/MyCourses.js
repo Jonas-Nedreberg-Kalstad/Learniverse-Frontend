@@ -1,3 +1,4 @@
+import './MyCourses.css';
 import React, { useEffect, useState } from "react";
 import ManageCourse from "./ManageCourse";
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
@@ -5,9 +6,9 @@ import courseApi from "../../service/courseService";
 import MyCourseCard from "./MyCourseCard";
 import MyCoursesFilter from "./MyCoursesFilter";
 import courseService from "../../service/courseService";
-import { OpenModal } from "../Modal";
+import { OpenModal } from "../common/modal/Modal";
 import ReOpenCourse from './ReOpenCourse';
-import { notify } from "../Toaster";
+import { notify } from "../common/toaster/Toaster";
 
 const parentPath = "/my-courses";
 

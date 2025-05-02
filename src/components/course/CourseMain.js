@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import Breadcrumps from './Breadcrumbs';
-import Rating from '../Rating';
-import Tooltip from '../Tooltip';
-import { notify } from '../Toaster';
+import Rating from '../common/rating/Rating';
+import Tooltip from '../common/tooltip/Tooltip';
+import { notify } from '../common/toaster/Toaster';
 import enrollService from '../../service/enrollService';
 import Cookies from 'universal-cookie';
 import { getIsAdmin } from '../../utils/role';
@@ -105,7 +105,7 @@ function CourseCard({ course }) {
   
         <section className="Course-Showcase-Container">
           <header className='Course-Showcase-Container-Header'>
-            <h1 className='Text-Light-Title'>{course?.courseName}<img style={{cursor:'pointer'}} onClick={() => toggleSave()} src={require(isSaved ? '../../public/assets/images/stored-icon.png' : '../../public/assets/images/not-stored-icon.png')} alt={isSaved ? 'Remove course from watch list' : 'Add course to watch list'}/></h1>
+            <h1 className='Text-Light-Title'>{course?.courseName} <img className='Icon-Large' style={{cursor:'pointer'}} onClick={() => toggleSave()} src={require(isSaved ? '../../public/assets/images/stored-icon.png' : '../../public/assets/images/not-stored-icon.png')} alt={isSaved ? 'Remove course from watch list' : 'Add course to watch list'}/></h1>
             <Rating rating={course?.averageRating} amount={course?.numberOfReviews} light={false} />
             <p>
               <span className='Text-Light'>Course by </span>

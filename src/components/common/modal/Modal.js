@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './Modal.css';
 import ReactDOM from "react-dom";
 
 // This variable will hold the external trigger
