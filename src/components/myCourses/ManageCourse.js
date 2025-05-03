@@ -183,27 +183,27 @@ function ManageCourse() {
           <div className="Create-Course-Fields">
 
             <div className="Create-Course-Field">
-              <text>Link to course:</text>
+              <p>Link to course:</p>
               <input type="text" name="courseUrl" value={formData.courseUrl} onChange={handleChange} required />
             </div>
 
             <div className="Create-Course-Field">
-              <text>Image link:</text>
+              <p>Image link:</p>
               <input type="text" name="courseImageUrl" value={formData.courseImageUrl} onChange={handleImageChange} required />
             </div>
 
             <div className="Create-Course-Field">
-              <text>Course Name:</text>
+              <p>Course Name:</p>
               <input type="text" name="courseName" placeholder="Course Name" value={formData.courseName} onChange={handleChange} required />
             </div>
 
             <div className="Create-Course-Field">
-              <text>Price:</text>
+              <p>Price:</p>
               <input type="number" name="price" placeholder="Price" value={formData.price} onChange={handleChange} required />
             </div>
 
             <div className="Create-Course-Field">
-              <text>Currency:</text>
+              <p>Currency:</p>
               <select name="currency" value={formData?.currency} onChange={handleChange} required>
                 <option value={null} disabled={true} selected>select currency</option>
                 <option value={1} >NOK</option>
@@ -222,7 +222,7 @@ function ManageCourse() {
             */}
 
             <div className="Create-Course-Field">
-              <text>Category:</text>
+              <p>Category:</p>
               <select name="category" value={formData?.category?.id} onChange={handleChange} required>
                 <option value={0} disabled={true} selected>select category</option>
                 <option value={1}>Information Technologies</option>
@@ -233,7 +233,7 @@ function ManageCourse() {
             </div>
 
             <div className="Create-Course-Field">
-              <text>Difficulty:</text>
+              <p>Difficulty:</p>
               <select name="difficultyLevel" value={formData?.difficultyLevel?.id} onChange={handleChange} required>
                 <option value={0} disabled={true} selected>select difficulty</option>
                 <option value={1}>Beginner</option>
@@ -243,14 +243,14 @@ function ManageCourse() {
             </div>
 
             <div className="Create-Course-Field">
-              <text>Hours Per Week:</text>
+              <p>Hours Per Week:</p>
               <select name="hoursPerWeek" value={formData?.hoursPerWeek?.id} onChange={handleChange} required>
                 {createHourOptions()}
               </select>
             </div>
 
             <div className="Create-Course-Field">
-              <text>Credits:</text>
+              <p>Credits:</p>
               <select name="credit" value={formData?.credit?.id} onChange={handleChange} required>
                 {createCreditOptions()}
               </select>

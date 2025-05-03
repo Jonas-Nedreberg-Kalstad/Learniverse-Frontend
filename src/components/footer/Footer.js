@@ -16,14 +16,14 @@ function Footer() {
         <div style={{display:'flex', flexDirection:'row', flexWrap:'wrap', width:'80vw', gap:'32px', maxWidth:'512px'}}>
           <div style={{color: '#b2c0ca', flexGrow:'1'}}>
             <b>About</b>
-            <p style={{cursor:'pointer'}} onClick={() => navigate('/about-us')}>About Us</p>
-            <p style={{cursor:'pointer'}} onClick={() => navigate('/terms-of-service')}>Terms of Service</p>
+            <p style={{cursor:'pointer', marginLeft:'0px'}} onClick={() => navigate('/about-us')}>About Us</p>
+            <p style={{cursor:'pointer', marginLeft:'0px'}} onClick={() => navigate('/terms-of-service')}>Terms of Service</p>
           </div>
           <div style={{color: '#b2c0ca'}}>
             <b>Contact Us</b>
-            <p>Læringsveien 12B 5006 Bergen, Norge</p>
-            <p>Telephone: +47 400 12 345</p>
-            <p>Email: <a style={{color: '#b2c0ca'}} href="mailto:support@learnivereconnect.com">support@learnivereconnect.com</a></p>
+            <p style={{marginLeft:'0px'}}>Læringsveien 12B 5006 Bergen, Norge</p>
+            <p style={{marginLeft:'0px'}}>Telephone: +47 400 12 345</p>
+            <p style={{marginLeft:'0px'}}>Email: <a style={{color: '#b2c0ca'}} href="mailto:support@learnivereconnect.com">support@learnivereconnect.com</a></p>
           </div>
         </div>
       </div>

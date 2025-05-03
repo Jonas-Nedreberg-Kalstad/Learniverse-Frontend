@@ -38,7 +38,7 @@ function EnrolledCoursesCard({ course }) {
 
   return (
     <div className="My-Profile-Card-Container">
-      <img style={{borderRadius:'5px 0px 0px 5px'}} src={image} alt='CourseImage'/>
+      <img src={image} alt='CourseImage'/>
 
       <div style={{display:'flex', flexDirection:'column', justifyContent:'space-between', padding:'8px', maxWidth:'320px', flexGrow:'1'}}>
         <text>{course.courseName}</text>

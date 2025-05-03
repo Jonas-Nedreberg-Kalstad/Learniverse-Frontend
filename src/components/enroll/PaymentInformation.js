@@ -111,10 +111,10 @@ function PaymentInformation({ data, onSubmit }) {
             </div>
             <div>Total: {data?.price ?? 'Price not found'} {data?.currency.currency}</div>
             <button disabled={!validInput} onClick={submitForm}>Continue</button>
-        </div>
-        <div style={{display:'flex', flexDirection:'row', gap:'8px'}}>
-            <img style={{height:'64px', width:'64px'}} src={require('../../public/assets/images/visa-icon.png')}/>
-            <img style={{height:'64px', width:'64px'}} src={require('../../public/assets/images/mastercard-icon.png')}/>
+            <div style={{display:'flex', flexDirection:'row', gap:'8px'}}>
+                <img style={{height:'64px', width:'64px'}} src={require('../../public/assets/images/visa-icon.png')}/>
+                <img style={{height:'64px', width:'64px'}} src={require('../../public/assets/images/mastercard-icon.png')}/>
+            </div>
         </div>
     </div>
   );    

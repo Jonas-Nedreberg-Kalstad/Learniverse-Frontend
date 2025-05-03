@@ -1,3 +1,3 @@
 export const URL = {
-    BACKEND: "http://localhost:8080",
+    BACKEND: "https://learniverseconnect.norwayeast.cloudapp.azure.com",
 };

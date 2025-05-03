@@ -75,7 +75,7 @@ function MyCourseCard({ course, onOpen, onDeactivate }) {
   return (
     <div className="My-Courses-Card-Container">
 
-      <img style={{borderRadius:'5px 0px 0px 5px'}} src={course?.courseImageUrl} alt='CourseImage'/>
+      <img src={course?.courseImageUrl} alt='CourseImage'/>
         
         <div style={{display:'flex', flexDirection:'row', flexGrow:'1'}}>
           <div style={{display:'flex', flexDirection:'column', justifyContent:'space-between', margin:'4px', gap:'8px', maxWidth:'256px'}}>

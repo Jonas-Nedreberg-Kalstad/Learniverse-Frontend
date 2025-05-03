@@ -17,7 +17,7 @@ function WatchList() {
     const renderCourses = () => {
         return savedCourses.map((course, index) => (
             <div className="My-Profile-Card-Container" style={{ cursor:'pointer' }} onClick={() => navigate(`/course/${course.id}`)}>
-              <img style={{aspectRatio:'3/2', height:'128px', maxWidth:'100%', borderRadius:'5px 0px 0px 5px'}} src={course.courseImageUrl} alt='CourseImage'/>
+              <img style={{aspectRatio:'3/2', maxWidth:'100%'}} src={course.courseImageUrl} alt='CourseImage'/>
 
               <div className='Course-Card-Info'>
                 <text>{course.courseName}</text>

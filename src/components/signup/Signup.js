@@ -165,9 +165,9 @@ function SignUp() {
             <input name='verifyPassword' type='password' placeholder='password' value={verifyPassword} onChange={handleInput} />
         </div>
 
-        <div style={{width:'90%', display:'flex', flexDirection:'row'}}>
-            <input name='checkBox' type='checkbox' value={isChecked} onChange={handleInput} />
-            <text>I accept the&#8201;</text><a className='Text-Link' onClick={() => {OpenModal(<Tos/>)}}>terms and conditions</a>
+        <div style={{width:'90%', display:'flex', flexDirection:'row', alignItems:'center'}}>
+            <input className='checkbox' name='checkBox' type='checkbox' value={isChecked} onChange={handleInput} />
+            <p>I accept the <a className='Text-Link' onClick={() => {OpenModal(<Tos/>)}}>terms and conditions</a></p>
         </div>
 
         <button type='submit'>Create new account</button>
