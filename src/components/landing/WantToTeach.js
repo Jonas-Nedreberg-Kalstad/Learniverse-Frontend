@@ -3,7 +3,7 @@ import { OpenModal } from '../common/modal/Modal';
 
 function WantToTeach() {
   return (
-    <div className="WTT-Container">
+    <article className="WTT-Container">
         <h2>Partner with Us</h2>
         <p className="WTT-Paragraph">
             <strong>Learniverse Connect</strong> is a platform built to help academic institutions extend their reach by showcasing their courses in a centralized, easy-to-navigate environment. We understand the challenge of standing out in an increasingly crowded digital learning space—our solution is to bring together diverse educational offerings under one roof, making it simple for students to explore, compare, and enroll in courses that meet their needs.
@@ -22,7 +22,7 @@ function WantToTeach() {
                                                                                   <div>Email: support@learniverseconnect.com</div>
                                                                                   <p>Please send us an email if you have any questions or business inquiries.</p>
                                                                                 </>)}>Contact Us</button>
-    </div>
+    </article>
   );
 }
 

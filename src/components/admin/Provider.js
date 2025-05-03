@@ -35,24 +35,30 @@ function Provider() {
   }
 
   return(
-    <div className='User-Edit-Container'>
+    <section className='User-Edit-Container'>
+      
       <h2>Provider</h2>
+
       <div className='User-Edit-Input'>
         <span>ID</span>
         <input disabled={true} value={providerDataForm.id} />
       </div>
+
       <div className='User-Edit-Input'>
         <span>Provider Name</span>
         <input type='text' name='providerName' disabled={!isEditing} value={providerDataForm.providerName} onChange={handleInput} />
       </div>
+
       <div className='User-Edit-Input'>
         <span>Provider Page</span>
         <input type='text' name='providerUrl' disabled={!isEditing} value={providerDataForm.providerUrl} onChange={handleInput} />
       </div>
+
       <div className='User-Edit-Input'>
         <span>Logo Url</span>
         <input type='text' name='providerLogoUrl' disabled={!isEditing} value={providerDataForm.providerLogoUrl} onChange={handleInput} />
       </div>
+
       {!isEditing && <button onClick={() => setIsEditing(!isEditing)}>Edit Provider</button>}
       {isEditing && <button onClick={() => updateProvider()}>Save Changes</button>}
       {isEditing && <button onClick={() => setIsEditing(!isEditing)}>Cancel</button>}
@@ -61,8 +67,10 @@ function Provider() {
       <button onClick={() => OpenModal(<AddUser provider={providerDataForm} />)}>Add User</button>
 
       <h3>Delete</h3>
+      
       <button className='button-delete' onClick={() => OpenModal(<DeleteProvider provider={providerDataForm}/>)}>Delete Provider</button>
-    </div>
+    
+    </section>
   )
 }
 

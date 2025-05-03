@@ -96,7 +96,7 @@ function SearchBar() {
   }, [searchResult]);
 
   return (
-    <div className="Search-Bar-Container">
+    <section className="Search-Bar-Container">
         <div className='Search-Bar-Input-Container' >
           <img className='star-icon' src={require("../../public/assets/images/search-icon.png")} alt='Search' />
           <input onBlur={() => {setTimeout(() => {setIsFocused(false)}, 250)}} onFocus={search} onChange={handleInputChange} className='Search-Input' type='text' placeholder='Search' />
@@ -104,7 +104,7 @@ function SearchBar() {
         {isFocused && isDebouncedFinished && (<div className='Search-Bar-Result-Container'>
           {renderResults}
         </div>)}
-    </div>
+    </section>
   );
 }
 

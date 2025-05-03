@@ -79,19 +79,23 @@ function MyCourses() {
   }
 
   return (
-    <div className="My-Course-Container">
+    <main className="My-Course-Container">
+      
       <MyCoursesFilter onFilterChange={setFilterParameters} />
-      <div className="My-Course-Card-Container">
+      
+      <section className="My-Course-Card-Container">
         <h3 onClick={() => navigate(`${parentPath}/general`)}>my-courses</h3>
         {filteredCourses.length > 0 ? filteredCourses?.map((course) => (
           <MyCourseCard course={course} key={course.id} onOpen={onOpen} onDeactivate={handleDeactivate} />
         )) : <span>No courses found</span>}
-      </div>
+      </section>
+
       <Routes>
         <Route path={`${parentPath}/edit`} element={<ManageCourse course={null} />} />
         <Route path={`${parentPath}/create`} element={<ManageCourse />} />
       </Routes>
-    </div>
+
+    </main>
   );
 }
 

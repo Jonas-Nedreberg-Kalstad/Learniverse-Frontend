@@ -79,7 +79,7 @@ function MyCourseCard({ course, onOpen, onDeactivate }) {
         
         <div style={{display:'flex', flexDirection:'row', flexGrow:'1'}}>
           <div style={{display:'flex', flexDirection:'column', justifyContent:'space-between', margin:'4px', gap:'8px', maxWidth:'256px'}}>
-            <label>{course.courseName}</label>
+            <label className='truncate'>{course.courseName}</label>
             <label>{getStatus()}</label>
             <label>{getDate()}</label>
             <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><img className='star-icon' src={require(active ? '../../public/assets/images/green-icon.png' : '../../public/assets/images/red-icon.png')}/>{active ? "Active" : "Deactivated"}</label>

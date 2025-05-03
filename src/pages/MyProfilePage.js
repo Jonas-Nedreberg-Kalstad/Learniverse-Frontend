@@ -5,9 +5,7 @@ import Footer from '../components/footer/Footer';
 
 function MyProfilePage() {
   return (
-    <div className='App'>
       <MyProfile />
-    </div>
   );
 }
 

@@ -11,7 +11,7 @@ function PriceSlider({ price, onChangePrice }) {
 
 
   return (
-    <div>
+    <section>
         <h3>Price</h3>
         <br/>
         <div style={{display:'flex', justifyContent:'space-between'}}>
@@ -28,7 +28,7 @@ function PriceSlider({ price, onChangePrice }) {
             onChange={(newValue) => {setValue(newValue)}}
             onAfterChange={(newValue) => onChangePrice(newValue >= maxValue ? null : newValue)}
         />
-    </div>
+    </section>
   );
 }
 

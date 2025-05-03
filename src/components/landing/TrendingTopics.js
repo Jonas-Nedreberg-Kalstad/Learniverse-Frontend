@@ -7,7 +7,7 @@ function TrendingTopics() {
   const navigate = useNavigate();
 
   return (
-    <div className="Trending-Topics-Container">
+    <section className="Trending-Topics-Container">
         <h2>Explore topics</h2>
         <div style={{display:'flex', flexDirection:'row', gap:'16px', flexWrap:'wrap', justifyContent:'center'}}>
             <div>
@@ -26,7 +26,7 @@ function TrendingTopics() {
             </div>
         </div>
         <a href='' onClick={() => navigate("/search")}>Explore all our topics</a>
-    </div>
+    </section>
   );
 }
 

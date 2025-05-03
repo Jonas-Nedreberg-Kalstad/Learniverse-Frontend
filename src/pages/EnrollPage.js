@@ -6,9 +6,7 @@ import Enroll from '../components/enroll/Enroll';
 
 function EnrollPage() {
   return (
-    <div className='App'>
       <Enroll />
-    </div>
   );
 }
 

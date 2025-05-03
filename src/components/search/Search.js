@@ -101,20 +101,20 @@ function Search() {
 
   return (
     <main className="Search-Container">
-      <div className='Filter-Container'>
+      <aside className='Filter-Container'>
         <FilterDrowdown name="Category" selectedOption={selectedCategory} options={categoryOptions} onSelectedOption={setSelectedCategory} />
         <h3>Topics</h3>
         <SearchTopic initializeTopics={selectedTopics} onSelectedTopics={setSelectedTopics} />
         <PriceSlider price={price} onChangePrice={setPrice} />
         <FilterDrowdown name='Level' options={levelOptions} selectedOption={selectedLevel} onSelectedOption={setSelectedLevel} />
-      </div>
-      <div className='Results-Container'>
+      </aside>
+      <section className='Results-Container'>
         <text>Results: {resultCount}</text>
         {results.map((course, index) => (
           <SearchResultCard course={ course }/>
         ))}
         <Pager initializeValue={page} resultCount={resultCount} onValueChange={setPage} />
-      </div>
+      </section>
     </main>
   );
 }

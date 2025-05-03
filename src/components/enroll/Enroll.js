@@ -44,7 +44,7 @@ function Payment() {
   }, [paymentData])
 
   return (
-    <div style={{display:'flex', flexDirection:'column', alignItems:'center', gap:'64px'}}>
+    <main style={{display:'flex', flexDirection:'column', alignItems:'center', gap:'64px'}}>
         {isEnrolled ? 
           (<EnrollSuccess data={courseData}/>) 
           : 
@@ -55,7 +55,7 @@ function Payment() {
             </>
           )
         }
-    </div>
+    </main>
   );
 }
 

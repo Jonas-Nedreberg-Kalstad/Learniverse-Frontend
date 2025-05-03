@@ -7,12 +7,12 @@ import WantToTeach from './WantToTeach.js';
 
 function Landing() {
   return (
-    <div className='Landing-container'>
+    <main className='Landing-container'>
       <Hero />
       <CourseHierarchy />
       <TrendingTopics />
       <WantToTeach />
-    </div>
+    </main>
   );
 }
 

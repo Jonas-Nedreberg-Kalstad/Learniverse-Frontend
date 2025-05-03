@@ -20,7 +20,7 @@ function General() {
     }, []);
 
 return (
-    <div className="General-Container">
+    <section className="General-Container">
 
         <h3>General</h3>
         <div style={{ display: "flex", flexDirection: "row", gap: "16px" }}>
@@ -48,7 +48,7 @@ return (
         
         <h3>Account Security</h3>
         <button onClick={() => OpenModal(<UpdatePassword />)}>Change Password</button>
-    </div>
+    </section>
   );
 }
 

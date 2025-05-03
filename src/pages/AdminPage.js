@@ -5,9 +5,7 @@ import Admin from '../components/admin/Admin.js';
 
 function AdminPage() {
   return (
-    <div className="App">
       <Admin />
-    </div>
   );
 }
 

@@ -26,7 +26,7 @@ function MyCoursesFilter({ onFilterChange }) {
   };
 
   return (
-    <div style={{maxWidth:'320px'}}>
+    <aside style={{maxWidth:'320px'}}>
       <h3>Filter</h3>
       <div className="My-Course-Filter-Container">
         <p>Show only:</p>
@@ -72,7 +72,7 @@ function MyCoursesFilter({ onFilterChange }) {
       </div>
       <br/>
       <button onClick={() => navigate('/create-course')}>Create New Course</button>
-    </div>
+    </aside>
   );
 }
 

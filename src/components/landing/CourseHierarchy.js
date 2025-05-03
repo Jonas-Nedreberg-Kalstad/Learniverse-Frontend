@@ -42,13 +42,13 @@ function CourseHierarchy() {
   }
 
   return (
-    <div className="Course-Hierarchy-Container">
+    <section className="Course-Hierarchy-Container">
       <h2>Top rated courses</h2>
       <div className='Course-Container'>
         {hasRecievedResponse && createCourseCards()}
       </div>
       <a href='' onClick={() => navigate("/search")}>Explore all our courses</a>
-    </div>
+    </section>
   );
 }
 

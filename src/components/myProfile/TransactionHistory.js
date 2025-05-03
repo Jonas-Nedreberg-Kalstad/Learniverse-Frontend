@@ -57,7 +57,7 @@ function TransactionHistory() {
     }
 
 return (
-    <div style={{display:'flex', flexDirection:'column', gap:'16px', width:'100vw', maxWidth:'720px'}}>
+    <section style={{display:'flex', flexDirection:'column', gap:'16px', width:'100vw', maxWidth:'720px'}}>
         <h2>Transaction History</h2>
         <Table tableSchema={{
         "ID": "id", 
@@ -68,7 +68,7 @@ return (
         }} 
         data={transactionHistory} 
         onClick={onClick} />
-    </div>
+    </section>
   );
 }
 

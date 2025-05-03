@@ -51,3 +51,7 @@
 .Payment-Information-Container input {
   width: 100%;
 }
+
+.Payment-Information-Container p {
+  margin: 0px;
+}

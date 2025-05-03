@@ -29,15 +29,15 @@ function LoginOptions() {
       }, []);
 
   return (
-    <div className='Login-Options-Container' ref={containerRef}>
+    <section className='Login-Options-Container' ref={containerRef}>
         <img className='User-Icon' onClick={() => setShowMenu(!showMenu)} src={require("../../public/assets/images/key-icon.png")} alt='Open login menu' />
         { showMenu  && (
-            <div className='User-Option-Container'>
+            <nav className='User-Option-Container'>
                 <p onClick={() => navigate("/login")}>Login</p>
                 <p onClick={() => navigate("/signup")}>Sign up</p>
-            </div>
+            </nav>
         )}
-    </div>
+    </section>
   );
 }
 

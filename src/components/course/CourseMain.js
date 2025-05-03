@@ -97,7 +97,7 @@ function CourseCard({ course }) {
   }
 
   return (
-    <main className="Course-Main-Container">
+    <section className="Course-Main-Container">
       <Breadcrumps category={course?.category?.category} courseName={course?.courseName} />
       
       <article className="Course-Main-Card-Container">
@@ -154,7 +154,7 @@ function CourseCard({ course }) {
         </section>
       </article>
       {getIsAdmin() && <div style={{width:'100%', maxWidth:'1024px'}}><button className='button-delete' onClick={() => disableCourse()}>Disable Course</button></div>}
-    </main>
+    </section>
   );
 }
 

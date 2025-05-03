@@ -12,7 +12,7 @@ function MyProfile() {
     const navigate = useNavigate();
 
 return (
-    <div className="My-profile-container">
+    <main className="My-profile-container">
       <nav>
         <h3 style={{cursor:'pointer'}} onClick={() => navigate(`${parentPath}/general`)}>General</h3>
         <h3 style={{cursor:'pointer'}} onClick={() => navigate(`${parentPath}/enrolled-courses`)}>Enrolled Courses</h3>
@@ -25,7 +25,7 @@ return (
           <Route path="transactions" element={<TransactionHistory />} />
           <Route path="watch-list" element={<WatchList />} />
         </Routes>
-    </div>
+    </main>
   );
 }
 

@@ -39,13 +39,12 @@ function CourseReviews({ course }) {
     }
 
   return (
-    <div className='Review-Main-Container'>
+    <section className='Review-Main-Container'>
         <div style={{display:'flex', flexDirection:'column', gap:'16px', width:'100%', maxWidth:'1024px', alignItems:'center'}}>
             <h2>Reviews</h2>
             {renderReviews()}
         </div>
-    </div>
-    
+    </section>
   );
 }
 

@@ -34,19 +34,19 @@ function UserOptions() {
     }
 
   return (
-    <div ref={containerRef}>
+    <section ref={containerRef}>
         <img className='User-Icon' onClick={() => setShowMenu(!showMenu)} src={require("../../public/assets/images/user-icon.png")} alt='Open user menu'/>
         { showMenu  && (
-            <div className='User-Option-Container'>
+            <nav className='User-Option-Container'>
                 <p onClick={() => {navigate("/my-profile/general")}}>My Profile</p>
                 <p onClick={() => {navigate("/my-profile/enrolled-courses")}}>Enrolled Courses</p>
                 {(getIsAdmin() || getIsProvider()) && <p onClick={() => {navigate("/my-courses")}}>My Courses</p>}
                 {getIsAdmin() && <p onClick={() => {navigate("/admin/users")}}>Admin Panel</p>}
                 {getIsAdmin() && <p onClick={() => {window.open("http://localhost:8080/swagger-ui/index.html", "_blank")}}>Api Document</p>}
                 <p onClick={() => removeJWT()}>Log Out</p>
-            </div>
+            </nav>
         )}
-    </div>
+    </section>
   );
 }
 

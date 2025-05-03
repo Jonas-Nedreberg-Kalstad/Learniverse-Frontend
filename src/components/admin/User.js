@@ -72,7 +72,7 @@ function User() {
   }
 
   return(
-    <div className='User-Edit-Container'>
+    <section className='User-Edit-Container'>
 
       <h2>User</h2>
       <div className='User-Edit-Input'>
@@ -122,7 +122,7 @@ function User() {
           <button className="button-delete" onClick={() => removeFromProvider()}>Remove Provider</button>
         </>)
       }
-    </div>
+    </section>
   )
 }
 

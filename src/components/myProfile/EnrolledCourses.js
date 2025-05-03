@@ -50,7 +50,7 @@ function EnrolledCourses() {
   }, [])
 
 return (
-  <div className="Enrolled-Courses-container">
+  <section className="Enrolled-Courses-container">
     <h2>Current Enrollments</h2>
     <h3>Currently Active</h3>
     {currentEnrollments.length > 0 ? (
@@ -78,7 +78,7 @@ return (
     ) : (
       <p>No Past Courses</p> // Display this message if there are no past courses
     )}
-  </div>
+  </section>
 );
 }
 

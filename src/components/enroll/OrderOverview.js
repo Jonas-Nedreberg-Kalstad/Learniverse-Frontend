@@ -14,7 +14,7 @@ function OrderOverview({ course }) {
   }, [course]);
 
   return (
-    <div className="Order-Overview-Main-Container">
+    <section className="Order-Overview-Main-Container">
         <h2>Enroll into course</h2>
         <div style={{display:'flex', flexDirection:'row', gap:'16px', flexWrap:'wrap', justifyContent:'center'}}>
             <img style={{height:'128px'}} src={image}/>
@@ -25,7 +25,7 @@ function OrderOverview({ course }) {
             </div>
         </div>
         <Duration courseStartDate={course?.startDate} courseEndDate={course?.endDate} />
-    </div>
+    </section>
   );
 }
 

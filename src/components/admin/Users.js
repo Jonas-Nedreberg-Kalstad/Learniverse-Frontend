@@ -54,7 +54,7 @@ function Users() {
     }
 
 return (
-    <div className='Users-Container'>
+    <section className='Users-Container'>
       <h2>Users</h2>
       <button style={{width:'100%'}} onClick={() => OpenModal(<CreateUser />)}>Create New User</button>
       <input style={{width:'100%', marginTop:'16px'}} type='text' placeholder='Search for user with name' onChange={handleChange}/>
@@ -68,7 +68,7 @@ return (
         }} 
         data={searchParameter.length > 0 ? searchResult : users}
         onClick={onClick}/>
-    </div>
+    </section>
 );
 }
 
@@ -113,19 +113,27 @@ function CreateUser() {
 
   return (
     <form style={{display:'flex', flexDirection:'column', gap:'8px'}} onSubmit={handleSubmit}>
+      
       <label>First Name:</label>
       <input type='text' name='firstName' placeholder='input first name' value={userDataForm.firstName} onChange={handleInput} required/>
+      
       <label>Last Name:</label>
       <input type='text' name='lastName' placeholder='input last name' value={userDataForm.lastName} onChange={handleInput} required/>
+      
       <label>Email:</label>
       <input type='email' name='email' placeholder='input email' value={userDataForm.email} onChange={handleInput} required/>
+      
       <label>Phone Number (Optional):</label>
       <input type='text' name='phoneNumber' placeholder='input phone number' value={userDataForm.phoneNumber} onChange={handleInput} />
+      
       <label>Password:</label>
       <input type='password' name='password' placeholder='input password' value={userDataForm.password} onChange={handleInput} required/>
+      
       <label>Verify Password:</label>
       <input type='password' placeholder='verify password' value={verifyPassword} onChange={(event) => {setVerifyPassword(event.target.value)}} required/>
+      
       <button>Create Provider Account</button>
+      
     </form>
   )
 }

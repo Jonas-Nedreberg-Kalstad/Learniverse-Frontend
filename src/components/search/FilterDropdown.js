@@ -21,7 +21,7 @@ function FilterDrowdown({name, options, selectedOption, onSelectedOption}) {
   }, [selectedOption]);
 
   return (
-    <div className="Dropdown-Container">
+    <section className="Dropdown-Container">
         <h3 style={{cursor:'pointer'}} onClick={() => setIsOpened(!isOpened)}>{name}</h3>
         {isOpened &&
           (
@@ -35,7 +35,7 @@ function FilterDrowdown({name, options, selectedOption, onSelectedOption}) {
             </div>
           )
         }
-    </div>
+    </section>
   );
 }
 

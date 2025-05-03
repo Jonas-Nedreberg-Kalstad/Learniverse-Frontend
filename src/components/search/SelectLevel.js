@@ -18,7 +18,7 @@ function SelectLevel({name}) {
     }
 
   return (
-    <div className="Dropdown-Container">
+    <section className="Dropdown-Container">
         <h3 onClick={() => setIsOpened(!isOpened)}>{name}</h3>
         {isOpened &&(<div className='Dropdown-Content-Container'>
             {options.map((option) => (
@@ -29,7 +29,7 @@ function SelectLevel({name}) {
             ))}
             </div>)
         }
-    </div>
+    </section>
   );
 }
 

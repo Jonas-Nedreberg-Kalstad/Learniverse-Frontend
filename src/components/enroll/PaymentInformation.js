@@ -70,7 +70,9 @@ function PaymentInformation({ data, onSubmit }) {
         return formattedDate;
     }
 
-    const submitForm = () => {
+    const submitForm = (event) => {
+        event.preventDefault();
+
         const paymentData = {
             courseId: parseInt(data.id, 0),
             cardToken: parseInt(cardNumber, 0),
@@ -83,40 +85,38 @@ function PaymentInformation({ data, onSubmit }) {
     }
 
   return (
-    <div>
-        <div className="Payment-Information-Container">
-            <h2>Payment Information</h2>
-            <div style={{display:'flex', flexDirection:'column'}}>
-                <text>Card number</text>
-                <input placeholder='0000 0000 0000 0000' name='cardNumber' type='text' value={cardNumber} onChange={handleInput}/>
-            </div>
-            <div style={{display:'flex', alignContent:'center', justifyContent:'space-between'}}>
-                <div>
-                    <text>Expiration date</text>
-                    <div style={{ display:'flex', flexDirection:'row', justifyContent:'space-between', height:'33px', flexGrow:'1' }}>
-                        <select name='month' onChange={handleInput}>
-                            <option value='' disabled selected>mm</option>
-                            {constructMonthDropdown()}
-                        </select>
-                        <select name='year' onChange={handleInput}>
-                            <option value='' disabled selected>yyyy</option>
-                            {constructYearDropdown()}
-                        </select>
-                    </div>
-                </div>
-                <div style={{width:'187px'}}>
-                    <text>Security code</text>
-                    <input placeholder='0000' name='securityCode' type='text' value={securityCode} onChange={handleInput}/>
+    <form className="Payment-Information-Container" onSubmit={submitForm}>
+        <h2>Payment Information</h2>
+        <div style={{display:'flex', flexDirection:'column'}}>
+            <p>Card number</p>
+            <input placeholder='0000 0000 0000 0000' name='cardNumber' type='text' value={cardNumber} onChange={handleInput}/>
+        </div>
+        <div style={{display:'flex', alignContent:'center', justifyContent:'space-between'}}>
+            <div>
+                <p>Expiration date</p>
+                <div style={{ display:'flex', flexDirection:'row', justifyContent:'space-between', height:'33px', flexGrow:'1' }}>
+                    <select name='month' onChange={handleInput}>
+                        <option value='' disabled selected>mm</option>
+                        {constructMonthDropdown()}
+                    </select>
+                    <select name='year' onChange={handleInput}>
+                        <option value='' disabled selected>yyyy</option>
+                        {constructYearDropdown()}
+                    </select>
                 </div>
             </div>
-            <div>Total: {data?.price ?? 'Price not found'} {data?.currency.currency}</div>
-            <button disabled={!validInput} onClick={submitForm}>Continue</button>
-            <div style={{display:'flex', flexDirection:'row', gap:'8px'}}>
-                <img style={{height:'64px', width:'64px'}} src={require('../../public/assets/images/visa-icon.png')}/>
-                <img style={{height:'64px', width:'64px'}} src={require('../../public/assets/images/mastercard-icon.png')}/>
+            <div style={{width:'187px'}}>
+                <p>Security code</p>
+                <input placeholder='0000' name='securityCode' type='text' value={securityCode} onChange={handleInput}/>
             </div>
         </div>
-    </div>
+        <div>Total: {data?.price ?? 'Price not found'} {data?.currency.currency}</div>
+        <button disabled={!validInput}>Continue</button>
+        <div style={{display:'flex', flexDirection:'row', gap:'8px'}}>
+            <img style={{height:'64px', width:'64px'}} src={require('../../public/assets/images/visa-icon.png')}/>
+            <img style={{height:'64px', width:'64px'}} src={require('../../public/assets/images/mastercard-icon.png')}/>
+        </div>
+    </form>
   );    
 }
 

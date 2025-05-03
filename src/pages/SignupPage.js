@@ -5,9 +5,7 @@ import SignUp from '../components/signup/Signup';
 
 function SignupPage() {
   return (
-    <div className='App'>
       <SignUp />
-    </div>
   );
 }
 

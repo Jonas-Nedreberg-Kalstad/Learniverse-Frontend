@@ -4,7 +4,7 @@ import './Tos.css';
 
 function Tos() {
   return (
-    <div className="Tos-Container">
+    <article className="Tos-Container">
       <h2>Terms of Service Agreement</h2>
       <p>Welcome to our course platform, where you can enroll in courses created by our brilliant course providers. By using our services, you agree to the following "Terms and Conditions" which have been expertly crafted to be as confusing, unreasonable, and completely in your favor as possible. Enjoy!</p>
       <h3>1. Your Commitment to Us (And by "Your", we mean you are totally bound to us)</h3>
@@ -65,7 +65,7 @@ function Tos() {
         If you read this entire document, congratulations! You’ve just earned a gold star. If you skipped straight to the end to sign up, we admire your lack of effort and enthusiasm.
 
         Happy learning... or not!</p>
-    </div>
+    </article>
   );
 }
 

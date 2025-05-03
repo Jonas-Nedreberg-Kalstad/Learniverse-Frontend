@@ -102,7 +102,7 @@ function SearchTopic({ initializeTopics, onSelectedTopics }) {
   }, [searchResult, handleAddTopic]);
 
   return (
-    <div className="Topic-Search-Container">
+    <section className="Topic-Search-Container">
       <div className='Search-Bar-Container'>
         <div className='Search-Bar-Input-Container'>
           <input
@@ -125,7 +125,7 @@ function SearchTopic({ initializeTopics, onSelectedTopics }) {
           </button>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

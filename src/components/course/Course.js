@@ -24,11 +24,11 @@ function Course() {
   }, [id])
 
   return (
-    <div>
+    <main>
       <CourseMain course={courseData} />
       <CourseDescription course={courseData} />
       <CourseReviews course={courseData} />
-    </div>
+    </main>
   );
 }
 

@@ -28,10 +28,10 @@ function Header() {
       (
       <>
       <LoginOptions />
-      <div className='Authentication-Container'>
+      <section className='Authentication-Container'>
         <button className='button-secondary' onClick={() => navigate("/login")}>Login</button>
         <button onClick={() => navigate("/signup")}>Sign up</button>
-      </div>
+      </section>
       </>)
       }
         

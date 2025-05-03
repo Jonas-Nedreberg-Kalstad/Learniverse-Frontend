@@ -33,9 +33,9 @@ function Hamburger() {
     }, [showMenu])
 
   return (
-    <div ref={containerRef}>
+    <aside ref={containerRef}>
         <img className='User-Icon' onClick={() => setShowMenu(!showMenu)} src={require("../../public/assets/images/hamburger-icon.png")} alt="Open menu" />
-        <div className={`Hamburger-Menu-Container ${hasMounted ? showMenu : '' }`}>
+        <nav className={`Hamburger-Menu-Container ${hasMounted ? showMenu : '' }`}>
             <div style={{display:'flex', flexDirection:'row', alignItems:'center', cursor:'pointer' }} onClick={() => {navigate("/"); setShowMenu(!showMenu);}}>
               <img className='Company-Logo' src={require('../../public/assets/images/LCLogo.png')} alt='Learniverse Connect company logo'/>
               <a className='Logo-Text'>Learniverse Connect</a>
@@ -45,8 +45,8 @@ function Hamburger() {
             <p style={{cursor:'pointer'}} onClick={() => {navigate("/search?category=Digital+Marketing"); setShowMenu(!showMenu);}}>Digital Marketing</p>
             <p style={{cursor:'pointer'}} onClick={() => {navigate("/search?category=Business+and+Entrepreneurship"); setShowMenu(!showMenu);}}>Business and Entrepreneurship</p>
             <p style={{cursor:'pointer'}} onClick={() => {navigate("/search?category=Data+Science+and+Analytics"); setShowMenu(!showMenu);}}>Data Science and Analytics</p>
-        </div>
-    </div>
+        </nav>
+    </aside>
   );
 }
 

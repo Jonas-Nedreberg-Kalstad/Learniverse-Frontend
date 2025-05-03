@@ -120,10 +120,12 @@ function ManageCourse() {
       notify("ERROR", "Please select a currency.");
       return false;
     }
-    if (!formData.requirementDescription || formData.requirementDescription.trim() === "") {
-      notify("ERROR", "Requirement description is required.");
-      return false;
-    }
+
+    //if (!formData.requirementDescription || formData.requirementDescription.trim() === "") {
+    //  notify("ERROR", "Requirement description is required.");
+    //  return false;
+    //}
+
     if (!formData.courseUrl || formData.courseUrl.trim() === "") {
       notify("ERROR", "Course URL is required.");
       return false;
@@ -166,7 +168,7 @@ function ManageCourse() {
   };
 
   return (
-    <div className="Create-Course-Container">
+    <main className="Create-Course-Container">
 
       <h2>Create a New Course</h2>
 
@@ -261,8 +263,10 @@ function ManageCourse() {
         <div className="Create-Course-Description">
           <h3>Topics</h3>
           <SearchTopic initializeTopics={formData.topics} onSelectedTopics={setTopics} />
+          {/*
           <h3>Requirements</h3>
           <textarea name="requirementDescription" value={formData.requirementDescription} onChange={handleChange} style={{height:'320px', minWidth:'300px', maxWidth:'1024px'}} required />
+          */}
           <h3>Description</h3>
           <textarea name="description" value={formData.description} onChange={handleChange} style={{height:'320px', minWidth:'300px', maxWidth:'1024px'}} required />
         </div>
@@ -276,7 +280,7 @@ function ManageCourse() {
         </div>
       
       </form>
-    </div>
+    </main>
   );
 }
 

@@ -5,9 +5,7 @@ import CreateCourse from '../components/myCourses/ManageCourse';
 
 function CreateCoursePage() {
   return (
-    <div className='App'>
       <CreateCourse />
-    </div>
   );
 }
 

@@ -20,7 +20,7 @@ function SearchResultCard({ course }) {
       <img src={image} alt='CourseImage'/>
       
       <div className='Course-Card-Info'>
-        <text>{course?.courseName}</text>
+        <text className='truncate'>{course?.courseName}</text>
         <Rating rating={course?.averageRating} amount={course?.numberOfReviews} light={false} />
         <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', width:'100%'}}>
           <text>{course?.provider?.providerName}</text>

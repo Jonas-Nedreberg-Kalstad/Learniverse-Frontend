@@ -2,11 +2,11 @@ import '../../App.css';
 
 function Breadcrumps({category, courseName}) {
   return (
-    <div className="Breadcrumbs-Container">
+    <section className="Breadcrumbs-Container">
       <text className='Text-Light'>{category ? category : ""}</text>
       <text className='Text-Light'> - </text>
       <text className='Text-Light'>{courseName}</text>
-    </div>
+    </section>
   );
 }
 

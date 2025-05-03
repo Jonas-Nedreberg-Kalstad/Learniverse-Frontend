@@ -5,9 +5,7 @@ import Landing from '../components/landing/Landing.js';
 
 function LandingPage() {
   return (
-    <div className="App">
       <Landing />
-    </div>
   );
 }
 

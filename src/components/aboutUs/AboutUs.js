@@ -4,7 +4,7 @@ import './AboutUs.css';
 
 function AboutUs() {
   return (
-    <div className="About-Us-Container">
+    <article className="About-Us-Container">
         <br />
         <br />
         <br />
@@ -24,7 +24,7 @@ function AboutUs() {
         <h3>Our Vision</h3>
         <p>To create a world where education is more accessible, flexible, and tailored to the needs of every learner, regardless of location or background. We envision a future where anyone can find the right course, at the right time, from the right institution, and take their learning experience to new heights.</p>
         <p>Thank you for choosing Learniverse Connect as your educational partner. We are excited to help you embark on your learning journey!</p>
-    </div>
+    </article>
   );
 }
 
