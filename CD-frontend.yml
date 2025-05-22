@@ -1,0 +1,112 @@
+trigger:
+- main
+
+pool:
+  name: Localhost
+  demands:
+    - maven
+    - docker
+
+variables:
+  - group: test
+
+
+jobs:
+
+###### BuildReactApp #####################################################################################################################################
+
+- job: BuildReactApp
+  displayName: builds and creates a docker image of the react application
+
+  steps:
+  - checkout: none
+
+  - script: |
+      npm install --yes
+    displayName: Install node.js dependencies
+
+  - script: |
+      npm run build
+    displayName: Builds the react application
+
+  # Builds docker image
+  - script: |
+      docker build -t lc-frontend .
+    displayName: Dockerize react/nginx
+
+###### PushDockerImage #############################################################################################################################
+
+- job: PushDockerImages
+  displayName: Pushes images to private container registry
+  dependsOn: BuildReactApp
+  
+  steps:
+  - checkout: none
+
+  # Logs into the private container registry via a source connection
+  - task: Docker@2
+    displayName: Login to Azure Container Registry
+    inputs:
+      command: login
+      containerRegistry: learniverseconnect
+
+  # Tags the image for pushing them to the private repository in the cloud.
+  # Latest tag overwrites the last latest image, so that the server can pull this.
+  - script: |
+      docker tag lc-frontend learniverseconnect.azurecr.io/lc-frontend:latest
+    displayName: Tag Docker Image
+
+  # Pushes the image to the registry.
+  - script: |
+        docker push learniverseconnect.azurecr.io/lc-frontend:latest
+    displayName: Push Docker Image
+
+####### Deploy ##########################################################################################################################################
+
+- job: Deploy
+  displayName: Deploys the docker to a cloud hosted staging server
+  dependsOn: PushDockerImages
+
+  steps:
+  #- checkout: none
+
+  # Logs into Azure via a service connection, and tears down the server if it exists.
+  - task: AzureCLI@2
+    displayName: Tear down current VM
+    inputs:
+      azureSubscription: lc-rm
+      scriptType: ps
+      scriptLocation: inlineScript
+      inlineScript: |
+        az vm delete --name LC-Web-Server --resource-group LearniverseConnect --yes
+        az disk delete --name LC-Web-Server --resource-group LearniverseConnect --yes
+
+  # Deploys a new VM via the VMtemplate.json, it then sets itself up by downloading 
+  # docker and azure cli for pulling and running the latest image via a custom script.
+  - task: AzureResourceManagerTemplateDeployment@3
+    displayName: Create new VM
+    inputs:
+      azureResourceManagerConnection: lc-rm
+      subscriptionId: a2c71318-8b0a-4924-8645-82d4e855bc62
+      resourceGroupName: LearniverseConnect
+      location: Norway East
+      csmFile: $(Build.SourcesDirectory)/VMtemplate.json
+      deploymentMode: Incremental
+      deploymentName: web-server-deployment
+
+####### Clean ##########################################################################################################################################
+
+# Clean always runs wether the pipeline fails or not.
+# Deletes the docker images built, and running docker containers.
+- job: Clean
+  displayName: Clean docker
+  dependsOn: 
+    - BuildReactApp
+    - Deploy
+  condition: always()
+
+  steps:
+  # Deletes the docker image.
+  - script: |
+      docker rmi lc-frontend:latest
+    displayName: Remove docker image on agent
