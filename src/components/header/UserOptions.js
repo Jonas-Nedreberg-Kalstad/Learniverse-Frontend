@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import { getIsAdmin, getIsProvider, getIsUser } from '../../utils/role';
+import { URL } from '../../utils/url';
+import { Fetch } from '../../service/apiService';
 
 function UserOptions() {
 
@@ -42,7 +44,7 @@ function UserOptions() {
                 <p onClick={() => {navigate("/my-profile/enrolled-courses")}}>Enrolled Courses</p>
                 {(getIsAdmin() || getIsProvider()) && <p onClick={() => {navigate("/my-courses")}}>My Courses</p>}
                 {getIsAdmin() && <p onClick={() => {navigate("/admin/users")}}>Admin Panel</p>}
-                {getIsAdmin() && <p onClick={() => {window.open("http://localhost:8080/swagger-ui/index.html", "_blank")}}>Api Document</p>}
+                {getIsAdmin() && <p onClick={() => {window.open(`${URL.BACKEND}/api/swagger-ui/index.html`)}}>Api Document</p>}
                 <p onClick={() => removeJWT()}>Log Out</p>
             </nav>
         )}

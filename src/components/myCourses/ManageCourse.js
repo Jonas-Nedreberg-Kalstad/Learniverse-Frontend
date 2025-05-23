@@ -170,7 +170,7 @@ function ManageCourse() {
   return (
     <main className="Create-Course-Container">
 
-      <h2>Create a New Course</h2>
+      {location.state?.course ? <h2>Edit Course</h2> : <h2>Create a New Course</h2>}
 
       <form className="Create-Course-Form" onSubmit={handleSubmit}>
         <div className="Create-Course-Image-Field-Container">

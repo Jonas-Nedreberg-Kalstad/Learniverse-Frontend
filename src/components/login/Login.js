@@ -63,7 +63,7 @@ function Login() {
 
         <div style={{display:'flex', flexDirection:'column', width:'75%'}}>
             <text>Email</text>
-            <input type='email' name='email' value={inputEmailValue} onChange={handleInputChange} placeholder='Email' required />
+            <input type='text' name='email' value={inputEmailValue} onChange={handleInputChange} placeholder='Email' required />
         </div>
 
         <div style={{display:'flex', flexDirection:'column', width:'75%'}}>

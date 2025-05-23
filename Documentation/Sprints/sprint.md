@@ -206,3 +206,13 @@ For the size of the group we tried to implement too many features, which ended u
 Having a more detailed design document earlier as we were not satisfied with the design and colors after many iterations. As Wireframe is a very barebones tool we should have opted for a more detailed design program like Figma.
 
 We should have shorter sprints, maybe a sprint every 1 or 2 weeks. This is due to continuous improvement, making it easier to identify and fix issues earlier, adjust priorities more frequently, and maintain better project momentum. Shorter feedback cycles would have helped us avoid feature overload and better manage our time commitments across all courses.
+
+
+
+# Note!
+Made some quick enhancements and bug fixes discovered while recording.
+
+- Fixed so admin can change a users password
+- Justified the text on landing page
+- Edit course page now has correct title
+- Delete provider and user works

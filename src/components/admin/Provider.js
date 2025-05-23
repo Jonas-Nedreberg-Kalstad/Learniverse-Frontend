@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { notify } from '../common/toaster/Toaster';
 import providerService from '../../service/providerService';
 import { CloseModal, OpenModal } from '../common/modal/Modal';
@@ -9,9 +9,9 @@ import Table from '../common/table/Table';
 function Provider() {
 
   const location = useLocation();
-  console.log(location);
+  const navigate = useNavigate();
 
-  const [providerDataForm, setProviderDataForm] = useState(location.state.provider || {});
+  const [providerDataForm, setProviderDataForm] = useState(location?.state?.provider || {});
   const [isEditing, setIsEditing] = useState(false);
 
   const handleInput = (event) => {
@@ -32,6 +32,11 @@ function Provider() {
 
   const updateProvider = () => {
     providerService.updateProvider(providerDataForm.id, providerDataForm, handleUpdate);
+  }
+
+  const onDelete = () => {
+    navigate("/admin/providers");
+    CloseModal();
   }
 
   return(
@@ -68,7 +73,7 @@ function Provider() {
 
       <h3>Delete</h3>
       
-      <button className='button-delete' onClick={() => OpenModal(<DeleteProvider provider={providerDataForm}/>)}>Delete Provider</button>
+      <button className='button-delete' onClick={() => OpenModal(<DeleteProvider provider={providerDataForm} onDelete={onDelete}/>)}>Delete Provider</button>
     
     </section>
   )
@@ -128,25 +133,29 @@ function AddUser({ provider }) {
   )
 }
 
-function DeleteProvider({ provider }) {
+function DeleteProvider({ provider, onDelete }) {
 
   const handleResponse = (response) => {
-    if(response.status == 200) {
+    if(response.status == 204) {
       notify("SUCCESS", "Provider successfully deleted");
+      onDelete();
     }
   }
 
   const deleteProvider = () => {
-    providerService.delete(provider.id, handleResponse);
+    providerService.delete(provider.id, handleResponse, () => {
+      notify("ERROR", "Cannot delete provider with courses"); 
+      CloseModal();
+    });
   }
 
   return (
-    <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+    <div style={{display:'flex', flexDirection:'column', justifyContent:'center', gap:'16px'}}>
       <h2>Delete Provider</h2>
-      <h4>Are You Sure?</h4>
-      <div style={{display:'flex', flexDirection:'row', gap:'16px'}}>
-        <button className='button-delete' onClick={() => deleteProvider()}>Yes</button>
-        <button onClick={() => CloseModal()}>No</button>
+      <h4 style={{textAlign:'center'}}>Are you sure?</h4>
+      <div style={{display:'flex', flexDirection:'row', justifyContent:'center', gap:'16px'}}>
+        <button style={{flexGrow:'1'}} className="button-delete" onClick={() => deleteProvider()}>Yes</button>
+        <button style={{flexGrow:'1'}} onClick={() => CloseModal()}>No</button>
       </div>
     </div>
   )

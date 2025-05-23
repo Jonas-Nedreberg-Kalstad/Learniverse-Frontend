@@ -104,7 +104,7 @@ function User() {
       {isEditing && <button onClick={() => {setIsEditing(!isEditing)}}>Cancel</button>}
 
       <h3>Account Security</h3>
-      <button>Reset Password</button>
+      <button onClick={() => OpenModal(<UpdatePassword user={location.state?.user}/>)}>Reset Password</button>
       <button className="button-delete" onClick={() => OpenModal(<DeleteUser deleteUser={deleteUser} />)}>Delete User</button>
 
       {userDataForm.provider &&
@@ -127,6 +127,58 @@ function User() {
 }
 
 export default User;
+
+function UpdatePassword( user ) {
+
+    const [newPassword, setNewPassword] = useState("");
+    const [verifyNewPassword, setVerifyNewPassword] = useState("");
+    const [isValid, setIsValid] = useState(false);
+
+    console.log(user.user.id);
+
+    const verifyPassword = () => {
+        if(newPassword.length < 4) return false;
+        if(newPassword === verifyNewPassword) return true;
+        return false;
+    }
+
+    const handleInput = (event) => {
+        const {name, value} = event.target;
+        if(name === "newPassword") {
+            setNewPassword(value);
+        } else {
+            setVerifyNewPassword(value);
+        }
+    }
+
+    useEffect(() => {
+        setIsValid(verifyPassword());
+    }, [newPassword, verifyNewPassword]);
+
+    const handleResponse = (response) => {
+        if(response.status == 200) {
+            notify("SUCCESS", "Password has been changed");
+            CloseModal();
+        }
+    }
+
+    const changePassword = () => {
+        const data = { password: newPassword }
+        userService.changeUserPassword(user.user.id, data, handleResponse);
+    }
+
+    return (
+        <div style={{display:'flex', flexDirection:'column', gap:'0px'}}>
+            <h2>Change Password</h2>
+            <p>New Password</p>
+            <input type="password" name="newPassword" placeholder="input new password" onChange={handleInput}/>
+            <p>Confirm New Password</p>
+            <input type="password" name="verifyPassword" placeholder="verify new password" onChange={handleInput}/>
+            <br/>
+            <button disabled={!isValid} onClick={() => changePassword()}>Change Password</button>
+        </div>
+    )
+}
 
 function DeleteUser({ deleteUser }) {
 

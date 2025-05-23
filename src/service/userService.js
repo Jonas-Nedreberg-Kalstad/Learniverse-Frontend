@@ -33,6 +33,10 @@ class UserService {
     return Fetch("PATCH", `api/user/userDetails/password`, data, handleResponse, handleError);
   }
 
+  changeUserPassword(id, data, handleResponse, handleError) {
+    return Fetch("PATCH", `api/admin/users/${id}/password`, data, handleResponse, handleError);
+  }
+
   createProviderUser(data, handleResponse, handleError) {
     return Fetch("POST", `api/admin/register`, data, handleResponse, handleError);
   }

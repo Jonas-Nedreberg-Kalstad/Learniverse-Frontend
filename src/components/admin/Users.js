@@ -46,7 +46,7 @@ function Users() {
     }, [searchParameter]);
 
     useEffect(() => {
-        userService.getAllUsers(handleResponse);
+        userService.getActiveUsers(handleResponse);
     }, []);
 
     const onClick = (user) => {

@@ -20,6 +20,7 @@ import Header from './components/header/Header.js';
 import Footer from './components/footer/Footer.js';
 import ScrollToTop from './utils/ScrollToTop.js';
 import AboutUsPage from './pages/AboutUsPage.js';
+import NotFoundPage from './pages/NotFoundPage.js';
 
 function App() {
 
@@ -54,6 +55,9 @@ function App() {
           <Route path="/create-course" element={<CreateCoursePage />} />
           <Route path="/create-course/:id" element={<CreateCoursePage />} />
           <Route path='/about-us' element={<AboutUsPage />}/>
+
+          <Route path='/404' element={<NotFoundPage/>}/>
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />
       </Router>
