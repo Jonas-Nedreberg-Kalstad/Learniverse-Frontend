@@ -124,3 +124,31 @@ We encountered significant challenges while deploying as we were trying to learn
 
 **Problems encountered**  
 We encountered many issues when dockerizing, configuring the nginx and setting up the cloud infrastructure, so everything took longer than we initially expected, and we were not able to complete the CD pipeline during this sprint.
+
+
+
+## Sprint 5: Finalize Project (Due date: May 23, 2025)
+**When did you work with the project – which weeks?**  
+We are working on this sprint in weeks 20-21, covering the period from May 13 to May 23, 2025.
+
+**What is the goal in this sprint?**  
+The goal of this sprint is to finalize our project for submission by completing documentation, creating presentation materials, and preparing a comprehensive README.md file.
+
+**How is the work being distributed among group members?**  
+Jonas is handling project documentation, including the README with setup instructions and documentation. Tobias is finalizing the cloud infrastructure with auto-deployment capabilities. Both members are collaborating on bug fixing, and preparing presentation materials for the final submission.
+
+**What has been accomplished in this sprint so far?**  
+
+1. Deployment:
+   - Pushed all finished IaC and initialization scripts
+   - Outlined a CD pipeline for frontend
+
+1. Documentation:
+   - Created a README.md file with setup instructions
+   - Uploaded all required documentation in readable format
+
+2. Presentation Materials:
+   - Began working on the video presentation
+   - Prepared a powerpoint for recording
+
+Though we weren't able to integrate Azure DevOps into our project in time, the CD pipeline is still outlined and should work. However, the attempt to get everything to work perfectly took a lot of time and ended up spending a lot of the time in this sprint working on the deployment still.
